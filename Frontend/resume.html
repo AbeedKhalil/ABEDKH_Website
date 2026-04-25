@@ -1,19 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume | Abd AlRahman Khalil</title>
+    <meta name="description" content="Resume of Abd AlRahman Khalil — Computer Science engineer with experience in QA automation, full-stack development, and L1/L2 IT support.">
+    <meta name="theme-color" content="#08090c">
+    <link rel="icon" type="image/jpeg" href="assets/profile.jpg">
+    <title>Resume — Abd AlRahman Khalil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Rubik:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header class="site-header" id="site-header">
     <div class="container nav-container">
-        <a href="index.html" class="logo-container">
-            <img src="assets/profile.jpg" alt="Abed Khalil" class="logo-img">
+        <a href="index.html" class="brand" aria-label="Home">
+            <img src="assets/profile.jpg" alt="" class="brand-avatar" aria-hidden="true">
+            <span><span class="brand-name">Abd AlRahman Khalil</span></span>
         </a>
-        <button class="mobile-toggle" id="mobile-toggle">☰</button>
-        <nav>
+        <nav aria-label="Primary">
             <ul class="nav-links" id="nav-links">
                 <li><a href="index.html" data-i18n="nav-home">Home</a></li>
                 <li><a href="projects.html" data-i18n="nav-projects">Projects</a></li>
@@ -22,90 +30,198 @@
             </ul>
         </nav>
         <div class="controls">
-            <select class="lang-switcher" id="lang-select" aria-label="Select Language">
-                <option value="en">English</option>
-                <option value="he">עברית</option>
-                <option value="ar">العربية</option>
+            <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle theme">
+                <svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
+            <select class="lang-switcher" id="lang-select" aria-label="Select language">
+                <option value="en">EN</option>
+                <option value="he">עב</option>
+                <option value="ar">عر</option>
             </select>
+            <button class="mobile-toggle" id="mobile-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">☰</button>
         </div>
     </div>
 </header>
 
-<main class="container">
-    <section style="padding-top: 3rem; padding-bottom: 2rem;">
-        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
-            <h1 data-i18n="nav-resume">Resume / CV</h1>
-            <a href="assets/Abed_Khalil_CV.pdf" target="_blank" class="btn btn-primary" data-i18n="btn-cv">Download CV</a>
+<main id="main">
+    <section class="container" style="padding-top: 4rem;">
+        <div class="section-head" data-reveal style="display:flex; justify-content:space-between; align-items:flex-end; gap:2rem; flex-wrap:wrap; max-width:none;">
+            <div style="max-width: 620px;">
+                <span class="eyebrow" data-i18n="ey-resume">Curriculum Vitae</span>
+                <h1 data-i18n="resume-title">Resume</h1>
+                <p data-i18n="resume-sub">A condensed view of my engineering experience, education, and toolkit. The full PDF version is available below.</p>
+            </div>
+            <div class="btn-group">
+                <a href="assets/Abed_Khalil_CV.pdf" target="_blank" rel="noopener" class="btn btn-primary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    <span data-i18n="btn-cv">Download CV</span>
+                </a>
+                <button class="btn btn-outline" onclick="window.print()" type="button">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                    <span data-i18n="btn-print">Print</span>
+                </button>
+            </div>
         </div>
-    </section>
 
-    <section style="padding-top: 0;">
-        <div class="grid" style="grid-template-columns: 2fr 1fr;">
+        <div class="resume-grid">
 
+            <!-- Sticky aside -->
+            <aside class="resume-aside" data-reveal>
+                <h4 data-i18n="aside-sections">On this page</h4>
+                <nav class="aside-nav" id="resume-nav">
+                    <a href="#summary" class="active" data-i18n="aside-summary">Summary</a>
+                    <a href="#experience" data-i18n="section-exp">Experience</a>
+                    <a href="#education" data-i18n="section-edu">Education</a>
+                    <a href="#skills" data-i18n="section-skills">Skills</a>
+                </nav>
+
+                <h4 data-i18n="aside-contact">Contact</h4>
+                <ul class="contact-list" style="margin-bottom: 1.5rem;">
+                    <li>
+                        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+                        <div style="min-width: 0;">
+                            <div class="lbl">Email</div>
+                            <a href="mailto:abed3.khalil168@gmail.com" class="val" style="font-size:0.84rem; word-break:break-all;">abed3.khalil168@gmail.com</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+                        <div>
+                            <div class="lbl">Phone</div>
+                            <a href="tel:+972532525262" class="val mono" style="font-size:0.86rem;">+972 53-252-5262</a>
+                        </div>
+                    </li>
+                </ul>
+            </aside>
+
+            <!-- Main content -->
             <div>
-                <h2 data-i18n="section-exp">Experience</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date" data-i18n="exp-date-1">2023 – Present</div>
-                        <h3 data-i18n="exp-title-1">Technical Support / IT Support Engineer</h3>
-                        <h4 style="color: var(--text-muted); margin-bottom: 0.5rem;" data-i18n="exp-place-1">Hadassah Academic College, Jerusalem</h4>
-                        <ul style="padding-inline-start: 1rem; color: var(--text-muted); list-style-type: square;">
-                            <li data-i18n="exp-b1">Provide end-to-end support...</li>
-                            <li data-i18n="exp-b2">Ensure 100% SLA compliance...</li>
-                            <li data-i18n="exp-b3">Administer Active Directory...</li>
-                            <li data-i18n="exp-b4">Develop PowerShell automation...</li>
-                            <li data-i18n="exp-b5">Document recurring issues and RCA...</li>
+                <!-- Summary -->
+                <article class="resume-block" id="summary" data-reveal>
+                    <h2 data-i18n="aside-summary">Summary</h2>
+                    <p style="font-size:1.02rem; line-height:1.75;" data-i18n="resume-summary">
+                        Computer Science engineer with hands-on experience in technical support, automation, and full-stack development.
+                        Proven background managing L1/L2 support for 4,500+ users with 100% SLA compliance, and a strong QA mindset
+                        rooted in real production troubleshooting. Comfortable across the stack — from Active Directory and PowerShell
+                        scripting to Node.js APIs and Python automation.
+                    </p>
+                </article>
+
+                <!-- Experience -->
+                <article class="resume-block" id="experience" data-reveal>
+                    <h2 data-i18n="section-exp">Experience</h2>
+                    <div class="timeline">
+                        <div class="tl-item">
+                            <div class="tl-date" data-i18n="exp-date-1">2023 — Present</div>
+                            <h3 class="tl-title" data-i18n="exp-title-1">Technical Support / IT Engineer</h3>
+                            <p class="tl-place" data-i18n="exp-place-1">Hadassah Academic College · Jerusalem</p>
+                            <ul class="tl-bullets">
+                                <li data-i18n="exp-b1">Provide end-to-end support and advanced L1/L2 troubleshooting for an infrastructure of 4,500+ users.</li>
+                                <li data-i18n="exp-b2">Maintain 100% SLA compliance while resolving hardware, software, and complex network requests.</li>
+                                <li data-i18n="exp-b3">Administer Active Directory environments and provide comprehensive infrastructure-related support.</li>
+                                <li data-i18n="exp-b4">Develop PowerShell automation scripts to streamline routine administrative tasks and system checks.</li>
+                                <li data-i18n="exp-b5">Document recurring issues and run Root Cause Analysis (RCA) to improve workflows and system stability.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Education -->
+                <article class="resume-block" id="education" data-reveal>
+                    <h2 data-i18n="section-edu">Education</h2>
+                    <div class="timeline">
+                        <div class="tl-item">
+                            <div class="tl-date">2022 — 2026</div>
+                            <h3 class="tl-title" data-i18n="edu-degree">B.Sc. in Computer Science</h3>
+                            <p class="tl-place" data-i18n="edu-place">Hadassah Academic College · Jerusalem</p>
+                            <ul class="tl-bullets">
+                                <li data-i18n="edu-b1">Coursework: OOP, Data Structures, Algorithms, Internet Programming, Databases, Computer Vision, Operating Systems.</li>
+                                <li data-i18n="edu-b2">Project-driven curriculum spanning C++ game engineering, Node.js full-stack apps, and MATLAB image processing.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Skills -->
+                <article class="resume-block" id="skills" data-reveal>
+                    <h2 data-i18n="section-skills">Technical Skills</h2>
+
+                    <div class="skill-group">
+                        <h4 data-i18n="skill-prog">Programming</h4>
+                        <ul class="skill-list">
+                            <li>Python</li><li>C++</li><li>C</li><li>C#</li><li>Java</li><li>JavaScript</li><li>MATLAB</li><li>SQL</li>
                         </ul>
                     </div>
-                </div>
 
-                <h2 data-i18n="section-edu" style="margin-top: 3rem;">Education</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <h3 data-i18n="edu-degree">B.Sc. in Computer Science</h3>
-                        <h4 style="color: var(--text-muted);" data-i18n="edu-place">Hadassah Academic College, Jerusalem</h4>
+                    <div class="skill-group">
+                        <h4 data-i18n="skill-web">Web &amp; Database</h4>
+                        <ul class="skill-list">
+                            <li>Node.js</li><li>Express</li><li>REST APIs</li><li>Sequelize ORM</li><li>MariaDB / MySQL</li>
+                        </ul>
                     </div>
-                </div>
+
+                    <div class="skill-group">
+                        <h4 data-i18n="skill-qa">QA &amp; Automation</h4>
+                        <ul class="skill-list">
+                            <li>Selenium</li><li>Playwright</li><li>Postman</li><li>Appium</li><li>Unit Testing</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-group">
+                        <h4 data-i18n="skill-infra">Support &amp; Infra</h4>
+                        <ul class="skill-list">
+                            <li>L1/L2 Troubleshooting</li><li>Active Directory</li><li>DNS / DHCP</li><li>TCP/IP</li><li>Windows Server</li><li>Linux</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-group">
+                        <h4 data-i18n="skill-tools">Tools &amp; Core Concepts</h4>
+                        <ul class="skill-list">
+                            <li>Git / GitHub</li><li>Docker</li><li>PowerShell</li><li>OOP</li><li>Algorithms</li><li>Log Analysis</li><li>RCA</li>
+                        </ul>
+                    </div>
+                </article>
             </div>
-
-            <div>
-                <h2 data-i18n="section-skills">Technical Skills</h2>
-
-                <div class="skills-category">
-                    <h3 data-i18n="skill-prog">Programming</h3>
-                    <ul class="skills-list"><li>Python</li><li>C++</li><li>C</li><li>C#</li><li>Java</li><li>JavaScript</li><li>MATLAB</li><li>SQL</li></ul>
-                </div>
-
-                <div class="skills-category" style="margin-top: 1.5rem;">
-                    <h3 data-i18n="skill-web">Web & Database</h3>
-                    <ul class="skills-list"><li>Node.js</li><li>Express</li><li>REST APIs</li><li>Sequelize ORM</li><li>MariaDB / MySQL</li></ul>
-                </div>
-
-                <div class="skills-category" style="margin-top: 1.5rem;">
-                    <h3 data-i18n="skill-qa">QA & Automation</h3>
-                    <ul class="skills-list"><li>Selenium</li><li>Playwright</li><li>Postman</li><li>Appium</li><li>Unit Testing</li></ul>
-                </div>
-
-                <div class="skills-category" style="margin-top: 1.5rem;">
-                    <h3 data-i18n="skill-infra">Support & Infra</h3>
-                    <ul class="skills-list"><li>L1/L2 Troubleshooting</li><li>Active Directory</li><li>DNS / DHCP</li><li>TCP/IP</li><li>Windows Server</li><li>Linux</li></ul>
-                </div>
-
-                <div class="skills-category" style="margin-top: 1.5rem;">
-                    <h3 data-i18n="skill-tools">Tools & Core Concepts</h3>
-                    <ul class="skills-list"><li>Git / GitHub</li><li>Docker</li><li>PowerShell</li><li>OOP</li><li>Algorithms</li><li>Log Analysis</li><li>RCA</li></ul>
-                </div>
-            </div>
-
         </div>
     </section>
 </main>
 
-<footer>
+<footer class="site-footer">
     <div class="container">
-        <p data-i18n="footer-rights">&copy; 2026 Abd AlRahman Khalil. All rights reserved.</p>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="brand">
+                    <img src="assets/profile.jpg" alt="" class="brand-avatar" aria-hidden="true">
+                    <span class="brand-name">Abd AlRahman Khalil</span>
+                </a>
+                <p data-i18n="footer-tag">Computer Science · QA &amp; Automation · IT Engineering. Building dependable systems out of Jerusalem.</p>
+            </div>
+            <div class="footer-col">
+                <h5 data-i18n="footer-nav">Navigate</h5>
+                <ul>
+                    <li><a href="index.html" data-i18n="nav-home">Home</a></li>
+                    <li><a href="projects.html" data-i18n="nav-projects">Projects</a></li>
+                    <li><a href="resume.html" data-i18n="nav-resume">Resume</a></li>
+                    <li><a href="contact.html" data-i18n="nav-contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5 data-i18n="footer-elsewhere">Elsewhere</h5>
+                <ul>
+                    <li><a href="https://github.com/AbeedKhalil" target="_blank" rel="noopener">GitHub ↗</a></li>
+                    <li><a href="https://www.linkedin.com/in/abed-khalil-731294176/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+                    <li><a href="mailto:abed3.khalil168@gmail.com">Email ↗</a></li>
+                    <li><a href="assets/Abed_Khalil_CV.pdf" target="_blank" rel="noopener">CV ↗</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p data-i18n="footer-rights">© 2026 Abd AlRahman Khalil. All rights reserved.</p>
+            <span class="mono">v2.0 · designed &amp; built in-house</span>
+        </div>
     </div>
 </footer>
+
 <script src="script.js"></script>
 </body>
 </html>

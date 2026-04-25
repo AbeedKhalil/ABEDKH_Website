@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Abd AlRahman Khalil</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="container nav-container">
+        <a href="index.html" class="logo-container">
+            <img src="assets/profile.jpg" alt="Abed Khalil" class="logo-img">
+        </a>
+        <button class="mobile-toggle" id="mobile-toggle">☰</button>
+        <nav>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html" data-i18n="nav-home">Home</a></li>
+                <li><a href="projects.html" data-i18n="nav-projects">Projects</a></li>
+                <li><a href="resume.html" data-i18n="nav-resume">Resume</a></li>
+                <li><a href="contact.html" data-i18n="nav-contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="controls">
+            <select class="lang-switcher" id="lang-select" aria-label="Select Language">
+                <option value="en">English</option>
+                <option value="he">עברית</option>
+                <option value="ar">العربية</option>
+            </select>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <section>
+        <h1 data-i18n="nav-projects">Software Projects</h1>
+        <p>A showcase of my academic and practical work across full-stack web development, automation, and game engineering.</p>
+
+        <div class="grid" style="margin-top: 3rem;">
+
+            <!-- Chatroom -->
+            <article class="card">
+                <h3>1. Full Chatroom Web App</h3>
+                <div class="tech-stack">
+                    <span class="tech-tag">Node.js</span><span class="tech-tag">Express</span><span class="tech-tag">Sequelize</span><span class="tech-tag">MariaDB</span>
+                </div>
+                <p>Built a robust chatroom application for an Internet Programming course. Implemented multi-step registration, login/logout authentication with <code>express-session</code>, and persistent data storage. Features REST API messaging (GET, POST, PUT, DELETE) with 10-second automatic polling, dynamic DOM updates, message search, and secure soft-deletion (paranoid mode) ensuring users only edit/delete their own content.</p>
+                <div class="btn-group">
+                    <a href="https://github.com/Solange-s-Courses/ex5-express-abed-rayan.git" class="btn btn-outline" style="padding: 0.5rem 1rem;">GitHub</a>
+                </div>
+            </article>
+
+            <!-- Currency Detection -->
+            <article class="card">
+                <h3>2. Image Processing & Currency Detection</h3>
+                <div class="tech-stack">
+                    <span class="tech-tag">MATLAB</span><span class="tech-tag">Computer Vision</span>
+                </div>
+                <p>Developed a computer vision project to detect and classify ILS, USD, and EUR currencies from varied images. Emphasizes advanced image processing techniques, algorithm design, and analytical problem-solving to accurately isolate and identify targets.</p>
+                <div class="btn-group">
+                    <a href="#" class="btn btn-outline" style="padding: 0.5rem 1rem;">GitHub</a>
+                </div>
+            </article>
+
+            <!-- Converter Automation -->
+            <article class="card">
+                <h3>3. Converter Automation</h3>
+                <div class="tech-stack">
+                    <span class="tech-tag">Python</span><span class="tech-tag">Selenium</span>
+                </div>
+                <p>Engineered an automation script/tool for an online file conversion process, significantly reducing manual data-entry work and improving daily efficiency.</p>
+                <div class="btn-group">
+                    <a href="https://github.com/AbeedKhalil/converter_automation.git" class="btn btn-outline" style="padding: 0.5rem 1rem;">GitHub</a>
+                </div>
+            </article>
+
+            <!-- Age of Wars -->
+            <article class="card">
+                <h3>4. Age of Wars</h3>
+                <div class="tech-stack">
+                    <span class="tech-tag">C++</span><span class="tech-tag">SFML</span><span class="tech-tag">Unit Testing</span>
+                </div>
+                <p>A structured game project developed with a strong focus on software reliability and QA engineering, achieving 80% unit test coverage to ensure bug-free logic.</p>
+                <div class="btn-group">
+                    <a href="https://github.com/AbeedKhalil/oop2_project.git" class="btn btn-outline" style="padding: 0.5rem 1rem;">GitHub</a>
+                </div>
+            </article>
+
+            <!-- Mouse vs Cats -->
+            <article class="card">
+                <h3>5. Mouse vs Cats</h3>
+                <div class="tech-stack">
+                    <span class="tech-tag">C++</span><span class="tech-tag">SFML</span><span class="tech-tag">Algorithms</span>
+                </div>
+                <p>A strategy game implementing the complex A* (A-Star) pathfinding algorithm for intelligent, obstacle-avoiding enemy AI movement.</p>
+                <div class="btn-group">
+                    <a href="https://github.com/AbeedKhalil/oop1_project.git" class="btn btn-outline" style="padding: 0.5rem 1rem;">GitHub</a>
+                </div>
+            </article>
+
+            <!-- Feeding Frenzy -->
+            <article class="card">
+                <h3>6. Feeding Frenzy</h3>
+                <div class="tech-stack">
+                    <span class="tech-tag">C++</span><span class="tech-tag">SFML</span><span class="tech-tag">OOP</span>
+                </div>
+                <p>A classic 2D arcade-style game featuring smooth sprite animations, dynamic object spawning, and strict collision detection mechanisms.</p>
+                <div class="btn-group">
+                    <a href="https://github.com/AbeedKhalil/oop2_project-Abed_Khalil-Rayan_Abdalhalem.git" class="btn btn-outline" style="padding: 0.5rem 1rem;">GitHub</a>
+                </div>
+            </article>
+
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p data-i18n="footer-rights">&copy; 2026 Abd AlRahman Khalil. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

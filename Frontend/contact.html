@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Abd AlRahman Khalil</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="container nav-container">
+        <a href="index.html" class="logo-container">
+            <img src="assets/profile.jpg" alt="Abed Khalil" class="logo-img">
+        </a>
+        <button class="mobile-toggle" id="mobile-toggle">☰</button>
+        <nav>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html" data-i18n="nav-home">Home</a></li>
+                <li><a href="projects.html" data-i18n="nav-projects">Projects</a></li>
+                <li><a href="resume.html" data-i18n="nav-resume">Resume</a></li>
+                <li><a href="contact.html" data-i18n="nav-contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="controls">
+            <select class="lang-switcher" id="lang-select" aria-label="Select Language">
+                <option value="en">English</option>
+                <option value="he">עברית</option>
+                <option value="ar">العربية</option>
+            </select>
+        </div>
+    </div>
+</header>
+
+<main class="container" style="max-width: 800px;">
+    <section>
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <h1 data-i18n="nav-contact">Let's Connect</h1>
+            <p>I am currently open to new opportunities in software development, QA, and technical support. Feel free to reach out directly.</p>
+            <div style="margin-top: 1.5rem;">
+                <a href="assets/Abed_Khalil_CV.pdf" target="_blank" class="btn btn-outline" data-i18n="btn-cv">Download CV</a>
+            </div>
+        </div>
+
+        <div class="grid" style="gap: 4rem;">
+            <!-- Contact Info -->
+            <div>
+                <h3>Contact Information</h3>
+                <p style="margin-top: 1rem;"><strong>Email:</strong> <br><a href="abed3.khalil168@gmail.com">abed3.khalil168@gmail.com</a></p>
+                <p><strong>Phone:</strong> <br><a href="tel:+972532525262">+972 53-252-5262</a></p>
+                <p><strong>LinkedIn:</strong> <br><a href="https://www.linkedin.com/in/abed-khalil-731294176/" target="_blank">linkedin.com/in/abed-khalil-731294176</a></p>
+                <p><strong>GitHub:</strong> <br><a href="https://github.com/AbeedKhalil" target="_blank">github.com/AbeedKhalil</a></p>
+            </div>
+
+            <!-- Form UI (Front-end only) -->
+            <div>
+                <h3>Send a Message</h3>
+                <form name="contact" method="POST" data-netlify="true" style="margin-top: 1rem;">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+
+                        <input type="text" id="name" name="name" class="form-control" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <!-- لاحظ إضافة name="email" هنا -->
+                        <input type="email" id="email" name="email" class="form-control" placeholder="john@company.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <!-- لاحظ إضافة name="message" هنا -->
+                        <textarea id="message" name="message" class="form-control" placeholder="How can we work together?" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p data-i18n="footer-rights">&copy; 2026 Abd AlRahman Khalil. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

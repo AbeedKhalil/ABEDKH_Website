@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Abd AlRahman Khalil — Computer Science engineer focused on full-stack development, QA automation, and reliable IT systems.">
-    <meta name="theme-color" content="#08090c">
+    <meta name="theme-color" content="#0a0a0d">
     <meta property="og:title" content="Abd AlRahman Khalil — Engineering Portfolio">
     <meta property="og:description" content="Full-stack developer · QA automation · L1/L2 technical support engineer.">
     <meta property="og:type" content="profile">
@@ -12,11 +12,12 @@
     <title>Abd AlRahman Khalil — Engineering Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Rubik:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <a href="#main" class="skip-link">Skip to content</a>
+<div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
 <header class="site-header" id="site-header">
     <div class="container nav-container">
@@ -54,20 +55,29 @@
     <!-- HERO -->
     <section class="hero container">
         <div class="hero-grid">
-            <div data-reveal>
-                <span class="status">
+            <div class="hero-text" data-reveal>
+                <span class="status" style="margin-bottom: 1.4rem;">
                     <span class="status-dot" aria-hidden="true"></span>
                     <span data-i18n="status-open">Open to new opportunities</span>
                 </span>
-                <h1 data-i18n="hero-name">Abd AlRahman Khalil</h1>
+                <span class="eyebrow" data-num="00" data-i18n="ey-portfolio">Portfolio · 2026</span>
+                <h1 class="display">
+                    <span data-i18n="hero-stmt-1">Engineering</span>
+                    <span class="italic-accent" data-i18n="hero-stmt-accent">at the seam</span>
+                    <span data-i18n="hero-stmt-2">of code &amp; infrastructure.</span>
+                </h1>
                 <p class="hero-tagline">
-                    <span data-i18n="hero-role-1">Computer Science</span> · <span data-i18n="hero-role-2">QA &amp; Automation</span> · <span data-i18n="hero-role-3">IT Engineering</span>
+                    <span data-i18n="hero-name">Abd AlRahman Khalil</span>
+                    <span class="tag-sep">·</span>
+                    <span class="role-rotate" id="role-rotate" data-i18n="hero-role-1">Computer Science</span>
+                    <span class="tag-sep">·</span>
+                    <span>~/jerusalem</span>
                 </p>
                 <p class="hero-desc" data-i18n="hero-desc">
                     I build dependable software and operate the systems behind it — full-stack web apps, QA automation, and L1/L2 support for thousands of users. Engineering with a bias for stability, observability, and clean execution.
                 </p>
                 <div class="btn-group">
-                    <a href="projects.html" class="btn btn-primary">
+                    <a href="projects.html" class="btn btn-primary" data-magnetic>
                         <span data-i18n="btn-projects">View Projects</span>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                     </a>
@@ -78,8 +88,8 @@
                 </div>
             </div>
 
-            <div data-reveal style="--reveal-delay: 120ms;">
-                <div class="profile-card">
+            <div class="hero-aside" data-reveal style="--reveal-delay: 120ms;">
+                <div class="profile-card" id="profile-card">
                     <span class="profile-corner">
                         <span class="status-dot" aria-hidden="true"></span>
                         <span data-i18n="card-available">Available</span>
@@ -98,19 +108,19 @@
         <!-- Stats -->
         <div class="stats-strip" data-reveal style="--reveal-delay: 220ms;">
             <div class="stat">
-                <div class="stat-num">4,500<small>+</small></div>
+                <div class="stat-num"><span data-count="4500">0</span><small>+</small></div>
                 <div class="stat-label" data-i18n="stat-1">Users supported</div>
             </div>
             <div class="stat">
-                <div class="stat-num">100<small>%</small></div>
+                <div class="stat-num"><span data-count="100">0</span><small>%</small></div>
                 <div class="stat-label" data-i18n="stat-2">SLA compliance</div>
             </div>
             <div class="stat">
-                <div class="stat-num">6<small>+</small></div>
+                <div class="stat-num"><span data-count="6">0</span><small>+</small></div>
                 <div class="stat-label" data-i18n="stat-3">Shipped projects</div>
             </div>
             <div class="stat">
-                <div class="stat-num">80<small>%</small></div>
+                <div class="stat-num"><span data-count="80">0</span><small>%</small></div>
                 <div class="stat-label" data-i18n="stat-4">Test coverage</div>
             </div>
         </div>
@@ -119,20 +129,34 @@
     <!-- ABOUT -->
     <section class="container" id="about">
         <div data-reveal>
-            <span class="eyebrow" data-i18n="ey-about">About</span>
+            <span class="eyebrow" data-num="01" data-i18n="ey-about">About</span>
         </div>
         <div class="about-grid">
             <div data-reveal>
-                <h2 data-i18n="section-about">Engineering at the seam of code and infrastructure.</h2>
+                <h2 class="display"><span data-i18n="about-h2-1">Hybrid</span> <span class="italic-accent" data-i18n="about-h2-accent">by design</span><span data-i18n="about-h2-2">.</span></h2>
+                <p class="pullquote" data-i18n="quote-1">"Stability is a feature. Observability is the other half."</p>
             </div>
-            <div data-reveal style="--reveal-delay: 120ms;">
+            <div class="about-prose" data-reveal style="--reveal-delay: 120ms;">
                 <p data-i18n="about-p1">I'm a detail-oriented Computer Science professional bridging the gap between software development and IT infrastructure. With a strong foundation in OOP, data structures, and algorithms, I approach software with a focus on stability and performance.</p>
                 <p data-i18n="about-p2">My background managing L1/L2 technical support for thousands of users has instilled a rigorous QA mindset. I excel at root-cause analysis, log forensics, and automating away repetitive work — whether building full-stack apps, computer-vision scripts, or hardening enterprise environments.</p>
-                <ul class="value-list" style="margin-top: 1.5rem;">
-                    <li data-i18n="val-1">Stability and observability before features</li>
-                    <li data-i18n="val-2">Automate the boring parts; document the rest</li>
-                    <li data-i18n="val-3">Test coverage as engineering hygiene</li>
-                </ul>
+
+                <div class="principles">
+                    <div class="principle">
+                        <span class="principle-num">01</span>
+                        <span class="principle-title" data-i18n="principle-1-t">Stability first</span>
+                        <p class="principle-body" data-i18n="principle-1-d">Stability and observability before features — production should fail loudly, not silently.</p>
+                    </div>
+                    <div class="principle">
+                        <span class="principle-num">02</span>
+                        <span class="principle-title" data-i18n="principle-2-t">Automate the boring</span>
+                        <p class="principle-body" data-i18n="principle-2-d">Anything done twice gets a script. Anything done weekly gets a pipeline. Document the rest.</p>
+                    </div>
+                    <div class="principle">
+                        <span class="principle-num">03</span>
+                        <span class="principle-title" data-i18n="principle-3-t">Tests as hygiene</span>
+                        <p class="principle-body" data-i18n="principle-3-d">Coverage isn't a metric, it's a habit — like washing your hands before surgery.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -140,12 +164,13 @@
     <!-- CAPABILITIES -->
     <section class="container">
         <div class="section-head" data-reveal>
-            <span class="eyebrow" data-i18n="ey-cap">Capabilities</span>
-            <h2 data-i18n="cap-title">What I do</h2>
+            <span class="eyebrow" data-num="02" data-i18n="ey-cap">Capabilities</span>
+            <h2 class="display"><span data-i18n="cap-title-1">What</span> <span class="italic-accent" data-i18n="cap-title-accent">I do</span><span data-i18n="cap-title-2">.</span></h2>
             <p data-i18n="cap-sub">A practical mix of building, testing, and supporting — across the stack and across the org.</p>
         </div>
         <div class="cap-grid">
             <article class="cap" data-reveal>
+                <span class="cap-num">01</span>
                 <div class="cap-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
                 </div>
@@ -153,13 +178,15 @@
                 <p data-i18n="cap-1-d">Node.js, Express, REST APIs, MariaDB / MySQL, Sequelize. Authentication, sessions, and persistent storage from the schema up.</p>
             </article>
             <article class="cap" data-reveal style="--reveal-delay: 100ms;">
+                <span class="cap-num">02</span>
                 <div class="cap-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21 12c-1 0-2-1-2-2s1-2 2-2 2 1 2 2-1 2-2 2z" transform="translate(-10 -7)"/><circle cx="12" cy="12" r="10"/></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
                 </div>
                 <h3 data-i18n="cap-2-t">QA &amp; automation</h3>
                 <p data-i18n="cap-2-d">Selenium, Playwright, Postman, Appium, unit testing. Build pipelines that fail loudly so production doesn't.</p>
             </article>
             <article class="cap" data-reveal style="--reveal-delay: 200ms;">
+                <span class="cap-num">03</span>
                 <div class="cap-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
                 </div>
@@ -173,8 +200,8 @@
     <section class="container">
         <div class="section-head" data-reveal style="display: flex; justify-content: space-between; align-items: end; max-width: none; gap: 2rem; flex-wrap: wrap;">
             <div style="max-width: 540px;">
-                <span class="eyebrow" data-i18n="ey-work">Selected work</span>
-                <h2 data-i18n="work-title">Recent projects</h2>
+                <span class="eyebrow" data-num="03" data-i18n="ey-work">Selected work</span>
+                <h2 class="display"><span data-i18n="work-title-1">Recent</span> <span class="italic-accent" data-i18n="work-title-accent">projects</span><span data-i18n="work-title-2">.</span></h2>
                 <p data-i18n="work-sub">A small slice — full-stack, computer vision, automation, and game engineering.</p>
             </div>
             <a href="projects.html" class="btn btn-ghost">
@@ -183,33 +210,35 @@
             </a>
         </div>
 
-        <div class="grid-3">
-            <article class="card project-card" data-cat="web" data-reveal>
-                <div class="project-visual" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h10"/><circle cx="6" cy="7" r="0.5" fill="currentColor"/><circle cx="6" cy="12" r="0.5" fill="currentColor"/></svg>
+        <!-- Featured breakout -->
+        <article class="card project-featured" data-cat="web" data-reveal>
+            <div class="project-visual" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="13" x2="13" y2="13"/></svg>
+            </div>
+            <div class="project-body">
+                <span class="featured-tag" data-i18n="featured-tag">Featured</span>
+                <div class="project-meta">
+                    <span class="cat-label"><span class="cat-dot"></span> Web</span>
+                    <span>2025</span>
                 </div>
-                <div class="project-body">
-                    <div class="project-meta">
-                        <span class="cat-label"><span class="cat-dot"></span> Web</span>
-                        <span>2025</span>
-                    </div>
-                    <h3 data-i18n="proj-chat-title">Full-Stack Chatroom</h3>
-                    <p data-i18n="proj-chat-desc">Secure auth, REST messaging, and persistent storage with paranoid soft-deletion. Real-time DOM updates via polling.</p>
-                    <div class="tech-stack">
-                        <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">MariaDB</span>
-                    </div>
-                    <div class="project-actions">
-                        <a href="https://github.com/Solange-s-Courses/ex5-express-abed-rayan.git" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.27-1.69-1.27-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.16 1.18.92-.26 1.9-.39 2.88-.39.98 0 1.96.13 2.88.39 2.2-1.49 3.16-1.18 3.16-1.18.62 1.58.23 2.75.11 3.04.74.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.13 0 1.54-.01 2.79-.01 3.17 0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
-                            GitHub
-                        </a>
-                    </div>
+                <h3 data-i18n="proj-chat-title">Full-Stack Chatroom</h3>
+                <p data-i18n="proj-chat-desc-long">A robust chatroom built for an Internet Programming course. Multi-step registration, session-based authentication, REST messaging with paranoid soft-deletion, and dynamic DOM updates via 10s polling — designed so users can only edit their own content, even under concurrent load.</p>
+                <div class="tech-stack">
+                    <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">Sequelize</span><span class="tag">MariaDB</span>
                 </div>
-            </article>
+                <div class="project-actions">
+                    <a href="https://github.com/Solange-s-Courses/ex5-express-abed-rayan.git" target="_blank" rel="noopener" class="btn btn-warm btn-sm">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.27-1.69-1.27-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.16 1.18.92-.26 1.9-.39 2.88-.39.98 0 1.96.13 2.88.39 2.2-1.49 3.16-1.18 3.16-1.18.62 1.58.23 2.75.11 3.04.74.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.13 0 1.54-.01 2.79-.01 3.17 0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+                        <span data-i18n="btn-open-repo">Open repository</span>
+                    </a>
+                </div>
+            </div>
+        </article>
 
-            <article class="card project-card" data-cat="vision" data-reveal style="--reveal-delay: 120ms;">
+        <div class="grid-2">
+            <article class="card project-card" data-cat="vision" data-reveal>
                 <div class="project-visual" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><line x1="3" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="21" y2="12"/></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><line x1="3" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="21" y2="12"/></svg>
                 </div>
                 <div class="project-body">
                     <div class="project-meta">
@@ -223,16 +252,16 @@
                     </div>
                     <div class="project-actions">
                         <a href="#" class="btn btn-outline btn-sm" aria-disabled="true">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.27-1.69-1.27-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.16 1.18.92-.26 1.9-.39 2.88-.39.98 0 1.96.13 2.88.39 2.2-1.49 3.16-1.18 3.16-1.18.62 1.58.23 2.75.11 3.04.74.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.13 0 1.54-.01 2.79-.01 3.17 0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
-                            Private repo
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            <span data-i18n="private-repo">Private repo</span>
                         </a>
                     </div>
                 </div>
             </article>
 
-            <article class="card project-card" data-cat="auto" data-reveal style="--reveal-delay: 240ms;">
+            <article class="card project-card" data-cat="auto" data-reveal style="--reveal-delay: 120ms;">
                 <div class="project-visual" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
                 </div>
                 <div class="project-body">
                     <div class="project-meta">
@@ -255,13 +284,68 @@
         </div>
     </section>
 
+    <!-- TOOLKIT MARQUEE -->
+    <section class="container">
+        <div class="section-head" data-reveal style="margin-bottom: 1.5rem;">
+            <span class="eyebrow" data-num="04" data-i18n="ey-toolkit">Toolkit</span>
+            <h2 class="display"><span data-i18n="tool-title-1">Tools that</span> <span class="italic-accent" data-i18n="tool-title-accent">earn their keep</span><span data-i18n="tool-title-2">.</span></h2>
+        </div>
+    </section>
+    <div class="marquee" data-reveal aria-hidden="true">
+        <div class="marquee-track" id="marquee-track">
+            <span class="marquee-item">Node.js</span>
+            <span class="marquee-item">Express</span>
+            <span class="marquee-item">Python</span>
+            <span class="marquee-item">Selenium</span>
+            <span class="marquee-item">Playwright</span>
+            <span class="marquee-item">MariaDB</span>
+            <span class="marquee-item">Sequelize</span>
+            <span class="marquee-item">PowerShell</span>
+            <span class="marquee-item">Active Directory</span>
+            <span class="marquee-item">C++</span>
+            <span class="marquee-item">SFML</span>
+            <span class="marquee-item">MATLAB</span>
+            <span class="marquee-item">Docker</span>
+            <span class="marquee-item">Postman</span>
+            <span class="marquee-item">Linux</span>
+        </div>
+    </div>
+
+    <!-- CURRENTLY -->
+    <section class="container">
+        <div class="section-head" data-reveal>
+            <span class="eyebrow" data-num="05" data-i18n="ey-now">Currently</span>
+            <h2 class="display"><span data-i18n="now-title-1">What I'm</span> <span class="italic-accent" data-i18n="now-title-accent">on right now</span><span data-i18n="now-title-2">.</span></h2>
+        </div>
+        <div class="now-grid" data-reveal>
+            <div class="now-item">
+                <div class="now-label" data-i18n="now-1-l">Building</div>
+                <div class="now-title" data-i18n="now-1-t">Automation toolkit at Hadassah</div>
+                <p class="now-body" data-i18n="now-1-d">PowerShell pipelines for AD onboarding and recurring infra checks.</p>
+            </div>
+            <div class="now-item">
+                <div class="now-label" data-i18n="now-2-l">Reading</div>
+                <div class="now-title" data-i18n="now-2-t">Designing Data-Intensive Applications</div>
+                <p class="now-body" data-i18n="now-2-d">Kleppmann — chasing the parts about replication and consensus.</p>
+            </div>
+            <div class="now-item">
+                <div class="now-label" data-i18n="now-3-l">Learning</div>
+                <div class="now-title" data-i18n="now-3-t">Playwright + Postman flows</div>
+                <p class="now-body" data-i18n="now-3-d">Wiring API contract tests into CI to fail loudly before deploys.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA -->
     <section class="container">
         <div class="cta-banner" data-reveal>
-            <h2 data-i18n="cta-title">Let's build something reliable.</h2>
+            <h2 class="display">
+                <span data-i18n="cta-stmt-1">Let's build something</span>
+                <span class="italic-accent" data-i18n="cta-stmt-accent">reliable</span><span data-i18n="cta-stmt-2">.</span>
+            </h2>
             <p data-i18n="cta-sub">Available for full-time roles in software, QA, and IT engineering. Open to remote and on-site work in Israel.</p>
             <div class="btn-group">
-                <a href="contact.html" class="btn btn-accent">
+                <a href="contact.html" class="btn btn-warm" data-magnetic>
                     <span data-i18n="btn-contact">Get in touch</span>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </a>
@@ -304,7 +388,7 @@
         </div>
         <div class="footer-bottom">
             <p data-i18n="footer-rights">© 2026 Abd AlRahman Khalil. All rights reserved.</p>
-            <span class="mono">v2.0 · designed &amp; built in-house</span>
+            <span class="mono">v3.0 · designed &amp; built in-house</span>
         </div>
     </div>
 </footer>

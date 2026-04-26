@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Contact Abd AlRahman Khalil — open to opportunities in software development, QA, and IT engineering.">
-    <meta name="theme-color" content="#08090c">
+    <meta name="theme-color" content="#0a0a0d">
     <link rel="icon" type="image/jpeg" href="assets/profile.jpg">
     <title>Contact — Abd AlRahman Khalil</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Rubik:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <a href="#main" class="skip-link">Skip to content</a>
+<div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
 <header class="site-header" id="site-header">
     <div class="container nav-container">
@@ -46,8 +47,8 @@
 <main id="main">
     <section class="container" style="padding-top: 4rem;">
         <div class="section-head" data-reveal>
-            <span class="eyebrow" data-i18n="ey-contact">Get in touch</span>
-            <h1 data-i18n="contact-title">Let's talk.</h1>
+            <span class="eyebrow" data-num="00" data-i18n="ey-contact">Get in touch</span>
+            <h1 class="display"><span data-i18n="contact-title-1">Let's</span> <span class="italic-accent" data-i18n="contact-title-accent">talk</span><span data-i18n="contact-title-2">.</span></h1>
             <p data-i18n="contact-sub">Open to opportunities in software development, QA, and IT engineering. The fastest channels are listed on the left — or send a message directly using the form.</p>
         </div>
 
@@ -62,7 +63,7 @@
                     </div>
                 </div>
 
-                <span class="status" style="margin-bottom:1.25rem;">
+                <span class="status" style="margin-bottom:1.4rem;">
                     <span class="status-dot" aria-hidden="true"></span>
                     <span data-i18n="status-replies">Typically replies within 24 hours</span>
                 </span>
@@ -126,26 +127,26 @@
                     <input type="hidden" name="form-name" value="contact">
 
                     <div class="form-group">
+                        <input type="text" id="name" name="name" class="form-control" placeholder=" " required autocomplete="name">
                         <label for="name" data-i18n="form-name">Name</label>
-                        <input type="text" id="name" name="name" class="form-control" placeholder="Jane Doe" required autocomplete="name">
                     </div>
 
                     <div class="form-group">
+                        <input type="email" id="email" name="email" class="form-control" placeholder=" " required autocomplete="email">
                         <label for="email" data-i18n="form-email">Email</label>
-                        <input type="email" id="email" name="email" class="form-control" placeholder="jane@company.com" required autocomplete="email">
                     </div>
 
                     <div class="form-group">
+                        <input type="text" id="subject" name="subject" class="form-control" placeholder=" ">
                         <label for="subject" data-i18n="form-subject">Subject</label>
-                        <input type="text" id="subject" name="subject" class="form-control" placeholder="Role / project / consultation">
                     </div>
 
                     <div class="form-group">
+                        <textarea id="message" name="message" class="form-control" placeholder=" " required></textarea>
                         <label for="message" data-i18n="form-message">Message</label>
-                        <textarea id="message" name="message" class="form-control" placeholder="A few words about what you're looking for…" required></textarea>
                     </div>
 
-                    <button type="submit" class="btn btn-primary" style="width:100%;">
+                    <button type="submit" class="btn btn-warm" style="width:100%;" data-magnetic>
                         <span data-i18n="btn-send">Send message</span>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                     </button>
@@ -186,7 +187,7 @@
         </div>
         <div class="footer-bottom">
             <p data-i18n="footer-rights">© 2026 Abd AlRahman Khalil. All rights reserved.</p>
-            <span class="mono">v2.0 · designed &amp; built in-house</span>
+            <span class="mono">v3.0 · designed &amp; built in-house</span>
         </div>
     </div>
 </footer>

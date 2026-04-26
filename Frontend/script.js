@@ -1,6 +1,8 @@
 /* ==========================================================================
    Abd AlRahman Khalil — Portfolio
-   Site interactivity: i18n, theme, mobile nav, scroll reveal, filters
+   Site interactivity: i18n, theme, mobile nav, scroll reveal, filters,
+   editorial motion (count-up, cursor spotlight, role rotator, tilt,
+   magnetic buttons, scroll progress, marquee).
    ========================================================================== */
 
 (function () {
@@ -15,7 +17,11 @@
 
             // Hero
             "status-open": "Open to new opportunities",
+            "ey-portfolio": "Portfolio · 2026",
             "hero-name": "Abd AlRahman Khalil",
+            "hero-stmt-1": "Engineering",
+            "hero-stmt-accent": "at the seam",
+            "hero-stmt-2": "of code & infrastructure.",
             "hero-role-1": "Computer Science",
             "hero-role-2": "QA & Automation",
             "hero-role-3": "IT Engineering",
@@ -28,6 +34,10 @@
             "btn-view-all": "View all projects",
             "btn-print": "Print",
             "btn-send": "Send message",
+            "btn-open-repo": "Open repository",
+            "btn-view-repo": "View on GitHub",
+            "private-repo": "Private repo",
+            "featured-tag": "Featured",
 
             // Stats
             "stat-1": "Users supported",
@@ -37,16 +47,24 @@
 
             // About
             "ey-about": "About",
-            "section-about": "Engineering at the seam of code and infrastructure.",
+            "about-h2-1": "Hybrid",
+            "about-h2-accent": "by design",
+            "about-h2-2": ".",
+            "quote-1": "“Stability is a feature. Observability is the other half.”",
             "about-p1": "I'm a detail-oriented Computer Science professional bridging the gap between software development and IT infrastructure. With a strong foundation in OOP, data structures, and algorithms, I approach software with a focus on stability and performance.",
             "about-p2": "My background managing L1/L2 technical support for thousands of users has instilled a rigorous QA mindset. I excel at root-cause analysis, log forensics, and automating away repetitive work — whether building full-stack apps, computer-vision scripts, or hardening enterprise environments.",
-            "val-1": "Stability and observability before features",
-            "val-2": "Automate the boring parts; document the rest",
-            "val-3": "Test coverage as engineering hygiene",
+            "principle-1-t": "Stability first",
+            "principle-1-d": "Stability and observability before features — production should fail loudly, not silently.",
+            "principle-2-t": "Automate the boring",
+            "principle-2-d": "Anything done twice gets a script. Anything done weekly gets a pipeline. Document the rest.",
+            "principle-3-t": "Tests as hygiene",
+            "principle-3-d": "Coverage isn't a metric, it's a habit — like washing your hands before surgery.",
 
             // Capabilities
             "ey-cap": "Capabilities",
-            "cap-title": "What I do",
+            "cap-title-1": "What",
+            "cap-title-accent": "I do",
+            "cap-title-2": ".",
             "cap-sub": "A practical mix of building, testing, and supporting — across the stack and across the org.",
             "cap-1-t": "Full-stack development",
             "cap-1-d": "Node.js, Express, REST APIs, MariaDB / MySQL, Sequelize. Authentication, sessions, and persistent storage from the schema up.",
@@ -57,30 +75,60 @@
 
             // Featured work
             "ey-work": "Selected work",
-            "work-title": "Recent projects",
+            "work-title-1": "Recent",
+            "work-title-accent": "projects",
+            "work-title-2": ".",
             "work-sub": "A small slice — full-stack, computer vision, automation, and game engineering.",
             "proj-chat-title": "Full-Stack Chatroom",
             "proj-chat-desc": "Secure auth, REST messaging, and persistent storage with paranoid soft-deletion. Real-time DOM updates via polling.",
+            "proj-chat-desc-long": "A robust chatroom built for an Internet Programming course. Multi-step registration, session-based authentication, REST messaging with paranoid soft-deletion, and dynamic DOM updates via 10s polling — designed so users can only edit their own content, even under concurrent load.",
             "proj-curr-title": "Currency Image Processing",
             "proj-curr-desc": "Computer-vision pipeline classifying ILS, USD, and EUR notes from varied images. Custom preprocessing & feature extraction.",
             "proj-conv-title": "Converter Automation",
             "proj-conv-desc": "Selenium-driven script that automates a manual file-conversion workflow, reclaiming hours of repetitive data entry per week.",
 
+            // Toolkit
+            "ey-toolkit": "Toolkit",
+            "tool-title-1": "Tools that",
+            "tool-title-accent": "earn their keep",
+            "tool-title-2": ".",
+
+            // Currently
+            "ey-now": "Currently",
+            "now-title-1": "What I'm",
+            "now-title-accent": "on right now",
+            "now-title-2": ".",
+            "now-1-l": "Building",
+            "now-1-t": "Automation toolkit at Hadassah",
+            "now-1-d": "PowerShell pipelines for AD onboarding and recurring infra checks.",
+            "now-2-l": "Reading",
+            "now-2-t": "Designing Data-Intensive Applications",
+            "now-2-d": "Kleppmann — chasing the parts about replication and consensus.",
+            "now-3-l": "Learning",
+            "now-3-t": "Playwright + Postman flows",
+            "now-3-d": "Wiring API contract tests into CI to fail loudly before deploys.",
+
             // CTA
-            "cta-title": "Let's build something reliable.",
+            "cta-stmt-1": "Let's build something",
+            "cta-stmt-accent": "reliable",
+            "cta-stmt-2": ".",
             "cta-sub": "Available for full-time roles in software, QA, and IT engineering. Open to remote and on-site work in Israel.",
-            "cta-collab": "Have a project in mind?",
+            "cta-collab-1": "Have a project",
+            "cta-collab-accent": "in mind",
+            "cta-collab-2": "?",
             "cta-collab-sub": "Whether it's full-stack, automation, or QA-driven, I'd love to hear about it.",
 
             // Projects page
-            "proj-page-title": "Projects",
+            "proj-page-title-1": "Projects",
+            "proj-page-title-accent": ".",
             "proj-page-sub": "A working portfolio of academic and personal projects spanning full-stack web, computer vision, game engineering, and automation. Each one prioritizes correctness, observability, and clean execution.",
             "filter-all": "All", "filter-web": "Web", "filter-vision": "Vision",
             "filter-games": "Games", "filter-auto": "Automation",
 
             // Resume
-            "ey-resume": "Curriculum Vitae",
-            "resume-title": "Resume",
+            "ey-resume": "Curriculum Vitae · 2026",
+            "resume-title-1": "Resume",
+            "resume-title-accent": ".",
             "resume-sub": "A condensed view of my engineering experience, education, and toolkit. The full PDF version is available below.",
             "aside-sections": "On this page",
             "aside-summary": "Summary",
@@ -110,7 +158,9 @@
 
             // Contact
             "ey-contact": "Get in touch",
-            "contact-title": "Let's talk.",
+            "contact-title-1": "Let's",
+            "contact-title-accent": "talk",
+            "contact-title-2": ".",
             "contact-sub": "Open to opportunities in software development, QA, and IT engineering. The fastest channels are listed on the left — or send a message directly using the form.",
             "status-replies": "Typically replies within 24 hours",
             "lbl-email": "Email", "lbl-phone": "Phone",
@@ -132,7 +182,11 @@
             "nav-home": "الرئيسية", "nav-projects": "المشاريع", "nav-resume": "السيرة الذاتية", "nav-contact": "تواصل",
 
             "status-open": "متاح لفرص عمل جديدة",
+            "ey-portfolio": "محفظة · 2026",
             "hero-name": "عبد الرحمن خليل",
+            "hero-stmt-1": "هندسةٌ",
+            "hero-stmt-accent": "على الحدود",
+            "hero-stmt-2": "بين الكود والبنية التحتية.",
             "hero-role-1": "علوم حاسوب",
             "hero-role-2": "ضمان الجودة والأتمتة",
             "hero-role-3": "هندسة تقنية المعلومات",
@@ -145,6 +199,10 @@
             "btn-view-all": "عرض كل المشاريع",
             "btn-print": "طباعة",
             "btn-send": "إرسال الرسالة",
+            "btn-open-repo": "فتح المستودع",
+            "btn-view-repo": "عرض على GitHub",
+            "private-repo": "مستودع خاص",
+            "featured-tag": "مميز",
 
             "stat-1": "مستخدم مدعوم",
             "stat-2": "التزام SLA",
@@ -152,15 +210,23 @@
             "stat-4": "تغطية اختبارات",
 
             "ey-about": "نبذة",
-            "section-about": "هندسة على الحدود بين الكود والبنية التحتية.",
+            "about-h2-1": "متعدد",
+            "about-h2-accent": "بالتصميم",
+            "about-h2-2": ".",
+            "quote-1": "«الاستقرار ميزة. القابلية للمراقبة هي النصف الآخر.»",
             "about-p1": "متخصص في علوم الحاسوب دقيق الملاحظة، أعمل على سدّ الفجوة بين تطوير البرمجيات والبنية التحتية لتقنية المعلومات. بفضل أساس قوي في OOP وهياكل البيانات والخوارزميات، أتعامل مع المشاريع البرمجية بتركيز على الاستقرار والأداء.",
             "about-p2": "خلفيتي في إدارة الدعم التقني (L1/L2) لآلاف المستخدمين أكسبتني عقلية صارمة في ضمان الجودة. أتميز في تحليل الأسباب الجذرية، تحليل السجلات، وأتمتة المهام المتكررة — سواء عند تطوير تطبيقات الويب، خوارزميات الرؤية الحاسوبية، أو تحصين بيئات المؤسسات.",
-            "val-1": "الاستقرار والمراقبة قبل الميزات",
-            "val-2": "أتمتة المهام المملة، وتوثيق ما تبقى",
-            "val-3": "تغطية الاختبارات كنظافة هندسية",
+            "principle-1-t": "الاستقرار أولاً",
+            "principle-1-d": "الاستقرار والمراقبة قبل الميزات — يجب أن يفشل الإنتاج بصوتٍ عالٍ لا في صمت.",
+            "principle-2-t": "أتمتة المهام المملة",
+            "principle-2-d": "أي شيء يُنجز مرتين يستحق سكربتاً. وأي شيء يُنجز أسبوعياً يستحق pipeline. وثّق الباقي.",
+            "principle-3-t": "الاختبارات كنظافة",
+            "principle-3-d": "التغطية ليست رقماً، إنها عادة — كغسل اليدين قبل الجراحة.",
 
             "ey-cap": "القدرات",
-            "cap-title": "ما أُقدّمه",
+            "cap-title-1": "ما",
+            "cap-title-accent": "أُقدّمه",
+            "cap-title-2": ".",
             "cap-sub": "مزيج عملي بين البناء والاختبار والدعم — عبر التقنيات وعبر فرق العمل.",
             "cap-1-t": "تطوير ويب متكامل",
             "cap-1-d": "Node.js، Express، REST APIs، MariaDB / MySQL، Sequelize. مصادقة، جلسات، وتخزين دائم من قاعدة البيانات للأعلى.",
@@ -170,27 +236,55 @@
             "cap-3-d": "Active Directory، DNS/DHCP، TCP/IP، Windows Server، Linux. أتمتة بـPowerShell وتوثيق مبني على RCA.",
 
             "ey-work": "أعمال مختارة",
-            "work-title": "أحدث المشاريع",
+            "work-title-1": "أحدث",
+            "work-title-accent": "المشاريع",
+            "work-title-2": ".",
             "work-sub": "شريحة مختصرة — تطوير ويب، رؤية حاسوبية، أتمتة، وهندسة ألعاب.",
             "proj-chat-title": "تطبيق دردشة متكامل",
             "proj-chat-desc": "مصادقة آمنة، رسائل REST، وتخزين دائم مع حذف ناعم محمي. تحديثات DOM فورية عبر الاستطلاع الدوري.",
+            "proj-chat-desc-long": "تطبيق دردشة متين بُني لمساق برمجة الإنترنت. تسجيل متعدد الخطوات، مصادقة بالجلسات، رسائل REST مع حذف ناعم محمي، وتحديثات DOM ديناميكية عبر استطلاع كل 10 ثوانٍ — مصمم بحيث يعدّل المستخدم محتواه فقط حتى تحت الحمل المتزامن.",
             "proj-curr-title": "معالجة صور وتمييز عملات",
             "proj-curr-desc": "خط معالجة بصري لتصنيف عملات ILS وUSD وEUR من صور متنوعة. معالجة مسبقة واستخراج ميزات مخصصة.",
             "proj-conv-title": "أتمتة تحويل الملفات",
             "proj-conv-desc": "أداة Selenium تؤتمت سير عمل تحويل الملفات يدوياً، وتوفّر ساعات من الإدخال المتكرر أسبوعياً.",
 
-            "cta-title": "لنبنِ شيئاً موثوقاً.",
+            "ey-toolkit": "الأدوات",
+            "tool-title-1": "أدواتٌ",
+            "tool-title-accent": "تستحق مكانها",
+            "tool-title-2": ".",
+
+            "ey-now": "حالياً",
+            "now-title-1": "ما أعمل",
+            "now-title-accent": "عليه الآن",
+            "now-title-2": ".",
+            "now-1-l": "أبني",
+            "now-1-t": "حقيبة أتمتة في كلية هداسا",
+            "now-1-d": "خطوط أنابيب PowerShell لإلحاق المستخدمين في AD وفحوصات بنية متكررة.",
+            "now-2-l": "أقرأ",
+            "now-2-t": "Designing Data-Intensive Applications",
+            "now-2-d": "كليبمان — أركّز على فصول النسخ المتماثل والإجماع.",
+            "now-3-l": "أتعلم",
+            "now-3-t": "Playwright + Postman",
+            "now-3-d": "ربط اختبارات عقود الـAPI بـCI لتفشل بصوت عالٍ قبل النشر.",
+
+            "cta-stmt-1": "لنبنِ شيئاً",
+            "cta-stmt-accent": "موثوقاً",
+            "cta-stmt-2": ".",
             "cta-sub": "متاح لوظائف بدوام كامل في تطوير البرمجيات وضمان الجودة وهندسة تقنية المعلومات. متاح للعمل عن بُعد ومن المكتب في إسرائيل.",
-            "cta-collab": "هل لديك مشروع بالفكر؟",
+            "cta-collab-1": "هل لديك مشروع",
+            "cta-collab-accent": "بالفكر",
+            "cta-collab-2": "؟",
             "cta-collab-sub": "سواء كان تطوير ويب، أتمتة، أو مشروعاً يقوده ضمان الجودة — يسعدني الحديث عنه.",
 
-            "proj-page-title": "المشاريع",
+            "proj-page-title-1": "المشاريع",
+            "proj-page-title-accent": ".",
             "proj-page-sub": "محفظة عمل تضم مشاريع أكاديمية وشخصية تشمل تطوير ويب متكامل، رؤية حاسوبية، هندسة ألعاب، وأتمتة. كل مشروع يقدم الصحة والمراقبة والتنفيذ النظيف على ما سواها.",
             "filter-all": "الكل", "filter-web": "ويب", "filter-vision": "رؤية",
             "filter-games": "ألعاب", "filter-auto": "أتمتة",
 
-            "ey-resume": "السيرة الذاتية",
-            "resume-title": "السيرة الذاتية",
+            "ey-resume": "السيرة الذاتية · 2026",
+            "resume-title-1": "السيرة الذاتية",
+            "resume-title-accent": ".",
             "resume-sub": "نظرة موجزة على خبراتي الهندسية، تعليمي، ومجموعة أدواتي. النسخة الكاملة بصيغة PDF متاحة أدناه.",
             "aside-sections": "في هذه الصفحة",
             "aside-summary": "ملخص",
@@ -219,7 +313,9 @@
             "skill-tools": "أدوات ومفاهيم أساسية",
 
             "ey-contact": "تواصل",
-            "contact-title": "لنتحدث.",
+            "contact-title-1": "لـِ",
+            "contact-title-accent": "نتحدث",
+            "contact-title-2": ".",
             "contact-sub": "متاح لفرص في تطوير البرمجيات، ضمان الجودة، وهندسة IT. أسرع القنوات على اليسار، أو يمكنك إرسال رسالة مباشرة من النموذج.",
             "status-replies": "عادةً ما أرد خلال 24 ساعة",
             "lbl-email": "البريد الإلكتروني", "lbl-phone": "الهاتف",
@@ -240,7 +336,11 @@
             "nav-home": "בית", "nav-projects": "פרויקטים", "nav-resume": "קורות חיים", "nav-contact": "צור קשר",
 
             "status-open": "פתוח להצעות עבודה",
+            "ey-portfolio": "תיק עבודות · 2026",
             "hero-name": "עבד אלרחמן חליל",
+            "hero-stmt-1": "הנדסה",
+            "hero-stmt-accent": "בנקודת התפר",
+            "hero-stmt-2": "בין קוד לתשתיות.",
             "hero-role-1": "מדעי המחשב",
             "hero-role-2": "QA ואוטומציה",
             "hero-role-3": "הנדסת IT",
@@ -253,6 +353,10 @@
             "btn-view-all": "כל הפרויקטים",
             "btn-print": "הדפסה",
             "btn-send": "שליחת הודעה",
+            "btn-open-repo": "פתיחת המאגר",
+            "btn-view-repo": "צפייה ב-GitHub",
+            "private-repo": "מאגר פרטי",
+            "featured-tag": "מומלץ",
 
             "stat-1": "משתמשים נתמכים",
             "stat-2": "עמידה ב-SLA",
@@ -260,15 +364,23 @@
             "stat-4": "כיסוי בדיקות",
 
             "ey-about": "אודות",
-            "section-about": "הנדסה בנקודת התפר בין קוד לתשתיות.",
+            "about-h2-1": "היברידי",
+            "about-h2-accent": "מתוך כוונה",
+            "about-h2-2": ".",
+            "quote-1": "״יציבות היא תכונה. נראות היא החצי השני.״",
             "about-p1": "איש מדעי המחשב יסודי, מגשר בין פיתוח תוכנה לתשתיות IT. עם בסיס חזק ב-OOP, מבני נתונים ואלגוריתמים, אני ניגש לאתגרי תוכנה תוך התמקדות ביציבות וביצועים.",
             "about-p2": "הרקע שלי בניהול תמיכה L1/L2 לאלפי משתמשים הקנה לי חשיבת QA קפדנית. אני מצטיין ב-RCA, ניתוח לוגים, ואוטומציה של עבודה חוזרת — בין אם מדובר באפליקציות Full-Stack, סקריפטי ראייה ממוחשבת, או חיזוק סביבות אנטרפרייז.",
-            "val-1": "יציבות ונראות לפני תכונות",
-            "val-2": "אוטומציה לחלקים המשעממים, תיעוד לכל השאר",
-            "val-3": "כיסוי בדיקות כהיגיינה הנדסית",
+            "principle-1-t": "יציבות קודם",
+            "principle-1-d": "יציבות ונראות לפני תכונות — פרודקשן צריך ליפול בקול, לא בשקט.",
+            "principle-2-t": "אוטומציה לחלקים המשעממים",
+            "principle-2-d": "כל מה שנעשה פעמיים מקבל סקריפט. כל מה שנעשה שבועי מקבל pipeline. את השאר לתעד.",
+            "principle-3-t": "בדיקות כהיגיינה",
+            "principle-3-d": "כיסוי הוא לא מדד, הוא הרגל — כמו רחיצת ידיים לפני ניתוח.",
 
             "ey-cap": "יכולות",
-            "cap-title": "מה אני עושה",
+            "cap-title-1": "מה",
+            "cap-title-accent": "אני עושה",
+            "cap-title-2": ".",
             "cap-sub": "תמהיל מעשי של בנייה, בדיקות ותמיכה — לרוחב הסטאק ולרוחב הארגון.",
             "cap-1-t": "פיתוח Full-Stack",
             "cap-1-d": "Node.js, Express, REST APIs, MariaDB / MySQL, Sequelize. אימות, סשנים ואחסון מתמיד מהסכמה ומעלה.",
@@ -278,27 +390,55 @@
             "cap-3-d": "Active Directory, DNS/DHCP, TCP/IP, Windows Server, Linux. אוטומציית PowerShell ותיעוד מוכוון RCA.",
 
             "ey-work": "עבודות נבחרות",
-            "work-title": "פרויקטים אחרונים",
+            "work-title-1": "פרויקטים",
+            "work-title-accent": "אחרונים",
+            "work-title-2": ".",
             "work-sub": "פרוסה קטנה — Full-Stack, ראייה ממוחשבת, אוטומציה והנדסת משחקים.",
             "proj-chat-title": "אפליקציית צ'אט Full-Stack",
             "proj-chat-desc": "אימות מאובטח, הודעות REST, ואחסון מתמיד עם soft-deletion פרנואידי. עדכוני DOM בזמן אמת באמצעות polling.",
+            "proj-chat-desc-long": "אפליקציית צ'אט יציבה לקורס תכנות אינטרנט. רישום רב-שלבי, אימות מבוסס סשן, הודעות REST עם soft-deletion פרנואידי, ועדכוני DOM דינמיים ב-polling של 10 שניות — שתוכננה כך שמשתמש יוכל לערוך רק את התוכן שלו, גם תחת עומס מקבילי.",
             "proj-curr-title": "עיבוד תמונה וזיהוי מטבעות",
             "proj-curr-desc": "צינור ראייה ממוחשבת שמסווג ILS, USD, ו-EUR מתמונות מגוונות. עיבוד מקדים והוצאת מאפיינים מותאמים.",
             "proj-conv-title": "אוטומציית המרת קבצים",
             "proj-conv-desc": "סקריפט מבוסס Selenium שמאוטמט תהליך ידני של המרת קבצים, ומשחרר שעות של עבודה חוזרת בשבוע.",
 
-            "cta-title": "בואו נבנה משהו אמין.",
+            "ey-toolkit": "ארגז כלים",
+            "tool-title-1": "כלים",
+            "tool-title-accent": "ששווים את מקומם",
+            "tool-title-2": ".",
+
+            "ey-now": "כרגע",
+            "now-title-1": "מה אני",
+            "now-title-accent": "עושה עכשיו",
+            "now-title-2": ".",
+            "now-1-l": "בונה",
+            "now-1-t": "ארגז אוטומציה בהדסה",
+            "now-1-d": "Pipelines של PowerShell ל-onboarding ב-AD ובדיקות תשתית חוזרות.",
+            "now-2-l": "קורא",
+            "now-2-t": "Designing Data-Intensive Applications",
+            "now-2-d": "קלפמן — מתמקד בפרקים על שכפול וקונצנזוס.",
+            "now-3-l": "לומד",
+            "now-3-t": "Playwright + Postman",
+            "now-3-d": "חיבור בדיקות חוזה ל-API ל-CI כדי שייפלו בקול לפני deploy.",
+
+            "cta-stmt-1": "בואו נבנה משהו",
+            "cta-stmt-accent": "אמין",
+            "cta-stmt-2": ".",
             "cta-sub": "פנוי למשרות מלאות בתוכנה, QA והנדסת IT. פתוח לעבודה מרחוק וביש\"ע.",
-            "cta-collab": "יש לכם פרויקט בראש?",
+            "cta-collab-1": "יש לכם פרויקט",
+            "cta-collab-accent": "בראש",
+            "cta-collab-2": "?",
             "cta-collab-sub": "Full-Stack, אוטומציה, או מובל QA — אשמח לשמוע.",
 
-            "proj-page-title": "פרויקטים",
+            "proj-page-title-1": "פרויקטים",
+            "proj-page-title-accent": ".",
             "proj-page-sub": "תיק עבודות פעיל הכולל פרויקטים אקדמיים ואישיים בתחומי Full-Stack, ראייה ממוחשבת, הנדסת משחקים ואוטומציה. כל אחד שם דגש על נכונות, נראות וביצוע נקי.",
             "filter-all": "הכל", "filter-web": "ווב", "filter-vision": "ראייה",
             "filter-games": "משחקים", "filter-auto": "אוטומציה",
 
-            "ey-resume": "קורות חיים",
-            "resume-title": "קורות חיים",
+            "ey-resume": "קורות חיים · 2026",
+            "resume-title-1": "קורות חיים",
+            "resume-title-accent": ".",
             "resume-sub": "מבט מתומצת על הניסיון ההנדסי, ההשכלה והכלים שלי. הגרסה המלאה ב-PDF זמינה למטה.",
             "aside-sections": "בעמוד הזה",
             "aside-summary": "תקציר",
@@ -327,7 +467,9 @@
             "skill-tools": "כלים ומושגי יסוד",
 
             "ey-contact": "צור קשר",
-            "contact-title": "בואו נדבר.",
+            "contact-title-1": "בואו",
+            "contact-title-accent": "נדבר",
+            "contact-title-2": ".",
             "contact-sub": "פתוח להזדמנויות בפיתוח תוכנה, QA והנדסת IT. הערוצים המהירים מופיעים מימין — או שלחו הודעה ישירה דרך הטופס.",
             "status-replies": "בדרך כלל אענה תוך 24 שעות",
             "lbl-email": "אימייל", "lbl-phone": "טלפון",
@@ -350,6 +492,7 @@
     /* ------------------------------------------------------------------ */
     const $  = (sel, root = document) => root.querySelector(sel);
     const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+    const reducedMotion = () => window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     /* ------------------------------------------------------------------ */
     /*  Theme                                                              */
@@ -362,7 +505,7 @@
         const icon = $('#theme-icon');
         if (icon) icon.innerHTML = theme === 'light' ? sunIcon : moonIcon;
         const meta = $('meta[name="theme-color"]');
-        if (meta) meta.setAttribute('content', theme === 'light' ? '#fafaf7' : '#08090c');
+        if (meta) meta.setAttribute('content', theme === 'light' ? '#faf8f3' : '#0a0a0d');
     }
 
     function initTheme() {
@@ -466,7 +609,7 @@
     /* ------------------------------------------------------------------ */
     function initFilters() {
         const buttons = $$('.filter-btn');
-        const cards = $$('.project-card');
+        const cards = $$('.project-card, .project-featured');
         if (!buttons.length || !cards.length) return;
 
         buttons.forEach(btn => {
@@ -510,6 +653,179 @@
     }
 
     /* ------------------------------------------------------------------ */
+    /*  Stats count-up                                                     */
+    /* ------------------------------------------------------------------ */
+    function initStatsCountup() {
+        const targets = $$('[data-count]');
+        if (!targets.length) return;
+        const reduced = reducedMotion();
+
+        const animate = (el) => {
+            const end = parseInt(el.dataset.count, 10);
+            if (isNaN(end)) return;
+            if (reduced) {
+                el.textContent = end.toLocaleString();
+                return;
+            }
+            const dur = 1400;
+            const start = performance.now();
+            const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+            const tick = (now) => {
+                const t = Math.min(1, (now - start) / dur);
+                const value = Math.round(end * easeOut(t));
+                el.textContent = value.toLocaleString();
+                if (t < 1) requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+        };
+
+        if (!('IntersectionObserver' in window)) {
+            targets.forEach(animate);
+            return;
+        }
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    animate(e.target);
+                    io.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        targets.forEach(t => io.observe(t));
+    }
+
+    /* ------------------------------------------------------------------ */
+    /*  Cursor-tracked card spotlight                                      */
+    /* ------------------------------------------------------------------ */
+    function initCursorSpotlight() {
+        if (reducedMotion()) return;
+        const targets = $$('.card, .cap, .project-featured');
+        targets.forEach(el => {
+            el.addEventListener('pointermove', (e) => {
+                const r = el.getBoundingClientRect();
+                const x = ((e.clientX - r.left) / r.width) * 100;
+                const y = ((e.clientY - r.top) / r.height) * 100;
+                el.style.setProperty('--mx', x + '%');
+                el.style.setProperty('--my', y + '%');
+            });
+        });
+    }
+
+    /* ------------------------------------------------------------------ */
+    /*  Profile-card 3D tilt                                               */
+    /* ------------------------------------------------------------------ */
+    function initProfileTilt() {
+        if (reducedMotion()) return;
+        const card = $('#profile-card');
+        if (!card) return;
+        const max = 6; // degrees
+        card.addEventListener('pointermove', (e) => {
+            const r = card.getBoundingClientRect();
+            const px = (e.clientX - r.left) / r.width - 0.5;
+            const py = (e.clientY - r.top) / r.height - 0.5;
+            const rx = (-py * max).toFixed(2);
+            const ry = (px * max).toFixed(2);
+            card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+        });
+        card.addEventListener('pointerleave', () => {
+            card.style.transform = '';
+        });
+    }
+
+    /* ------------------------------------------------------------------ */
+    /*  Hero role rotator                                                  */
+    /* ------------------------------------------------------------------ */
+    function initRoleRotator() {
+        const el = $('#role-rotate');
+        if (!el) return;
+        if (reducedMotion()) return;
+        const keys = ['hero-role-1', 'hero-role-2', 'hero-role-3'];
+        let idx = 0;
+        setInterval(() => {
+            idx = (idx + 1) % keys.length;
+            const lang = localStorage.getItem('preferredLang') || 'en';
+            const dict = i18n[lang] || i18n.en;
+            const next = dict[keys[idx]] || keys[idx];
+            el.classList.add('fading');
+            setTimeout(() => {
+                el.textContent = next;
+                el.setAttribute('data-i18n', keys[idx]);
+                el.classList.remove('fading');
+            }, 240);
+        }, 2800);
+    }
+
+    /* ------------------------------------------------------------------ */
+    /*  Magnetic buttons                                                   */
+    /* ------------------------------------------------------------------ */
+    function initMagneticButtons() {
+        if (reducedMotion()) return;
+        const buttons = $$('[data-magnetic]');
+        if (!buttons.length) return;
+        const radius = 70;
+        const max = 6;
+        buttons.forEach(btn => {
+            const onMove = (e) => {
+                const r = btn.getBoundingClientRect();
+                const cx = r.left + r.width / 2;
+                const cy = r.top + r.height / 2;
+                const dx = e.clientX - cx;
+                const dy = e.clientY - cy;
+                const dist = Math.hypot(dx, dy);
+                if (dist > radius) {
+                    btn.style.transform = '';
+                    return;
+                }
+                const factor = (1 - dist / radius) * max;
+                const tx = (dx / radius) * factor;
+                const ty = (dy / radius) * factor;
+                btn.style.transform = `translate(${tx.toFixed(2)}px, ${ty.toFixed(2)}px)`;
+            };
+            const reset = () => { btn.style.transform = ''; };
+            window.addEventListener('pointermove', onMove, { passive: true });
+            btn.addEventListener('pointerleave', reset);
+            btn.addEventListener('blur', reset);
+        });
+    }
+
+    /* ------------------------------------------------------------------ */
+    /*  Scroll progress bar                                                */
+    /* ------------------------------------------------------------------ */
+    function initScrollProgress() {
+        const bar = $('#scroll-progress');
+        if (!bar) return;
+        let raf = 0;
+        const update = () => {
+            const doc = document.documentElement;
+            const h = (doc.scrollHeight - doc.clientHeight) || 1;
+            const ratio = Math.max(0, Math.min(1, window.scrollY / h));
+            bar.style.transform = `scaleX(${ratio})`;
+            raf = 0;
+        };
+        const onScroll = () => {
+            if (!raf) raf = requestAnimationFrame(update);
+        };
+        update();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll, { passive: true });
+    }
+
+    /* ------------------------------------------------------------------ */
+    /*  Marquee — duplicate track contents for seamless loop               */
+    /* ------------------------------------------------------------------ */
+    function initMarquee() {
+        const track = $('#marquee-track');
+        if (!track) return;
+        // Duplicate children once so translateX(-50%) lines up.
+        const originals = Array.from(track.children);
+        originals.forEach(el => {
+            const clone = el.cloneNode(true);
+            clone.setAttribute('aria-hidden', 'true');
+            track.appendChild(clone);
+        });
+    }
+
+    /* ------------------------------------------------------------------ */
     /*  Boot                                                               */
     /* ------------------------------------------------------------------ */
     document.addEventListener('DOMContentLoaded', () => {
@@ -519,5 +835,12 @@
         initReveal();
         initFilters();
         initScrollspy();
+        initStatsCountup();
+        initCursorSpotlight();
+        initProfileTilt();
+        initRoleRotator();
+        initMagneticButtons();
+        initScrollProgress();
+        initMarquee();
     });
 })();

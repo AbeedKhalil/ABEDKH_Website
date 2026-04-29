@@ -10,6 +10,11 @@ const PORT = parseInt(process.env.PORT, 10) || 3000;
 const JWT_SECRET = process.env.JWT_SECRET || '';
 const JWT_TTL_SECONDS = 24 * 60 * 60;
 
+const CORS_ORIGINS = (process.env.CORS_ORIGINS || '')
+    .split(',')
+    .map((s) => s.trim())
+    .filter(Boolean);
+
 if (!JWT_SECRET || JWT_SECRET.length < 32) {
     throw new Error(
         'JWT_SECRET must be set in .env and at least 32 characters long. ' +
@@ -28,6 +33,7 @@ module.exports = {
     PORT,
     JWT_SECRET,
     JWT_TTL_SECONDS,
+    CORS_ORIGINS,
     DB_PATH,
     UPLOADS_DIR,
     FRONTEND_DIR,

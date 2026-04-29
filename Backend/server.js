@@ -1,7 +1,8 @@
 const path = require('path');
 const express = require('express');
+const cors = require('cors');
 
-const { PORT, FRONTEND_DIR, UPLOADS_DIR } = require('./config');
+const { PORT, FRONTEND_DIR, UPLOADS_DIR, CORS_ORIGINS } = require('./config');
 const db = require('./db/connection');
 const { seed } = require('./db/seed');
 
@@ -12,6 +13,23 @@ const { notFound, errorHandler } = require('./middleware/errorHandler');
 
 const app = express();
 app.disable('x-powered-by');
+app.set('trust proxy', 1);
+
+const corsOptions = {
+    origin: (origin, cb) => {
+        if (!origin) return cb(null, true);
+        if (CORS_ORIGINS.length === 0) return cb(null, true);
+        if (CORS_ORIGINS.includes(origin)) return cb(null, true);
+        // Don't throw — just omit CORS headers. Browser will block the response.
+        return cb(null, false);
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: false,
+    maxAge: 600
+};
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 app.use(express.json({ limit: '256kb' }));
 app.use(express.urlencoded({ extended: false, limit: '256kb' }));

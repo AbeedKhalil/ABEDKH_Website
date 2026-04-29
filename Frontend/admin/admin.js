@@ -23,6 +23,11 @@
     function setToken(t) { localStorage.setItem(TOKEN_KEY, t); }
     function clearToken() { localStorage.removeItem(TOKEN_KEY); }
 
+    function apiUrl(path) {
+        const base = (typeof window !== 'undefined' && window.PORTFOLIO_API_BASE) || '';
+        return base + path;
+    }
+
     async function api(method, path, body, opts) {
         const headers = {};
         const token = getToken();
@@ -38,7 +43,7 @@
             }
         }
 
-        const res = await fetch(path, init);
+        const res = await fetch(apiUrl(path), init);
         if (res.status === 401 && path.startsWith('/api/admin')) {
             clearToken();
             navigateTo('#/login');

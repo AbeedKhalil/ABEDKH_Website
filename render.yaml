@@ -1,0 +1,40 @@
+# Render Blueprint for the portfolio backend.
+# Connect this repo on Render -> "New +" -> "Blueprint", and Render will read
+# this file to provision the service + persistent disk in one click.
+#
+# After creation, set these env vars in the Render dashboard:
+#   - JWT_SECRET     (generate with `openssl rand -hex 32`)
+#   - CORS_ORIGINS   (e.g. https://abedkh.com,https://www.abedkh.com)
+#
+# Note: the disk is required so SQLite + uploaded images survive restarts.
+# Render's free tier does not include persistent disks; the smallest paid disk
+# is $1/mo for 1 GB, which is plenty for this workload.
+
+services:
+  - type: web
+    name: abedkh-portfolio-api
+    runtime: node
+    region: frankfurt
+    plan: free
+    rootDir: Backend
+    buildCommand: npm install --omit=dev
+    startCommand: node server.js
+    healthCheckPath: /api/projects
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 20.18.0
+      - key: PORT
+        value: 10000
+      - key: DB_PATH
+        value: /var/data/portfolio.sqlite
+      - key: UPLOADS_DIR
+        value: /var/data/uploads
+      - key: JWT_SECRET
+        sync: false        # set manually in the Render dashboard
+      - key: CORS_ORIGINS
+        sync: false        # set manually in the Render dashboard
+    disk:
+      name: portfolio-data
+      mountPath: /var/data
+      sizeGB: 1

@@ -1,0 +1,15 @@
+# Netlify config — pinned so the build doesn't depend on dashboard settings.
+# Only the static Frontend/ tree is deployed here. The Backend lives on Render.
+
+[build]
+  publish = "Frontend"
+
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

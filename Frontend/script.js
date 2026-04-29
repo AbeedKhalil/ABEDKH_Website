@@ -663,7 +663,8 @@
 
     async function loadProjects(lang) {
         if (_projectCache && _projectCache.lang === lang) return _projectCache.projects;
-        const res = await fetch('/api/projects?lang=' + encodeURIComponent(lang), { credentials: 'omit' });
+        const base = window.PORTFOLIO_API_BASE || '';
+        const res = await fetch(base + '/api/projects?lang=' + encodeURIComponent(lang), { credentials: 'omit' });
         if (!res.ok) throw new Error('Failed to load projects: ' + res.status);
         const data = await res.json();
         const projects = Array.isArray(data.projects) ? data.projects : [];

@@ -1,0 +1,1 @@
+window.PORTFOLIO_API_BASE = 'https://abedkh-website.onrender.com'

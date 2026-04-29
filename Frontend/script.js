@@ -579,7 +579,10 @@
         const saved = localStorage.getItem('preferredLang') || 'en';
         if (select) {
             select.value = saved;
-            select.addEventListener('change', (e) => setLanguage(e.target.value));
+            select.addEventListener('change', (e) => {
+                setLanguage(e.target.value);
+                renderProjects();
+            });
         }
         setLanguage(saved);
     }
@@ -588,8 +591,9 @@
     /*  Scroll reveal (IntersectionObserver)                               */
     /* ------------------------------------------------------------------ */
     function initReveal() {
-        const targets = $$('[data-reveal]');
-        if (!('IntersectionObserver' in window) || !targets.length) {
+        const targets = $$('[data-reveal]:not(.in)');
+        if (!targets.length) return;
+        if (!('IntersectionObserver' in window)) {
             targets.forEach(t => t.classList.add('in'));
             return;
         }
@@ -607,25 +611,293 @@
     /* ------------------------------------------------------------------ */
     /*  Project filter                                                     */
     /* ------------------------------------------------------------------ */
+    let _filtersBound = false;
     function initFilters() {
         const buttons = $$('.filter-btn');
-        const cards = $$('.project-card, .project-featured');
-        if (!buttons.length || !cards.length) return;
+        if (!buttons.length) return;
 
-        buttons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const filter = btn.dataset.filter;
-                buttons.forEach(b => {
-                    const active = b === btn;
-                    b.classList.toggle('active', active);
-                    b.setAttribute('aria-selected', String(active));
-                });
-                cards.forEach(card => {
-                    const match = filter === 'all' || card.dataset.cat === filter;
-                    card.style.display = match ? '' : 'none';
+        const applyActiveFilter = () => {
+            const activeBtn = buttons.find(b => b.classList.contains('active')) || buttons[0];
+            const filter = activeBtn ? activeBtn.dataset.filter : 'all';
+            $$('.project-card, .project-featured').forEach(card => {
+                const match = filter === 'all' || card.dataset.cat === filter;
+                card.style.display = match ? '' : 'none';
+            });
+        };
+
+        if (!_filtersBound) {
+            buttons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    buttons.forEach(b => {
+                        const active = b === btn;
+                        b.classList.toggle('active', active);
+                        b.setAttribute('aria-selected', String(active));
+                    });
+                    applyActiveFilter();
                 });
             });
+            _filtersBound = true;
+        }
+
+        applyActiveFilter();
+    }
+
+    /* ------------------------------------------------------------------ */
+    /*  Dynamic project rendering (fed by /api/projects)                   */
+    /* ------------------------------------------------------------------ */
+    const PROJECT_CATEGORIES = ['web', 'vision', 'game', 'auto'];
+    const CATEGORY_LABELS = {
+        web: 'Web', vision: 'Vision', game: 'Game', auto: 'Automation'
+    };
+    const CATEGORY_ICONS = {
+        web: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="13" x2="13" y2="13"/></svg>',
+        vision: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><line x1="3" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="21" y2="12"/></svg>',
+        game: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 17.5L3 6V3h3l11.5 11.5"/><path d="M13 19l6-6"/><path d="M16 16l4 4"/><path d="M19 21l2-2"/></svg>',
+        auto: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>'
+    };
+    const GITHUB_ICON = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.27-1.69-1.27-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.16 1.18.92-.26 1.9-.39 2.88-.39.98 0 1.96.13 2.88.39 2.2-1.49 3.16-1.18 3.16-1.18.62 1.58.23 2.75.11 3.04.74.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.13 0 1.54-.01 2.79-.01 3.17 0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>';
+    const LOCK_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>';
+    const EXTERNAL_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3h7v7"/><path d="M10 14L21 3"/><path d="M21 14v7H3V3h7"/></svg>';
+
+    let _projectCache = null; // { lang, projects }
+
+    async function loadProjects(lang) {
+        if (_projectCache && _projectCache.lang === lang) return _projectCache.projects;
+        const res = await fetch('/api/projects?lang=' + encodeURIComponent(lang), { credentials: 'omit' });
+        if (!res.ok) throw new Error('Failed to load projects: ' + res.status);
+        const data = await res.json();
+        const projects = Array.isArray(data.projects) ? data.projects : [];
+        _projectCache = { lang, projects };
+        return projects;
+    }
+
+    function categoryVisualHTML(project) {
+        if (project.heroImage) {
+            const safeUrl = String(project.heroImage).replace(/"/g, '%22');
+            return '<img src="' + safeUrl + '" alt="" loading="lazy" />';
+        }
+        return CATEGORY_ICONS[project.category] || CATEGORY_ICONS.web;
+    }
+
+    function buildVisual(project) {
+        const visual = document.createElement('div');
+        visual.className = 'project-visual';
+        visual.setAttribute('aria-hidden', 'true');
+        visual.innerHTML = categoryVisualHTML(project);
+        return visual;
+    }
+
+    function buildMeta(project) {
+        const meta = document.createElement('div');
+        meta.className = 'project-meta';
+        const cat = document.createElement('span');
+        cat.className = 'cat-label';
+        const dot = document.createElement('span');
+        dot.className = 'cat-dot';
+        cat.appendChild(dot);
+        cat.appendChild(document.createTextNode(' ' + (CATEGORY_LABELS[project.category] || project.category)));
+        const year = document.createElement('span');
+        year.textContent = String(project.year);
+        meta.appendChild(cat);
+        meta.appendChild(year);
+        return meta;
+    }
+
+    function buildTechStack(project) {
+        const wrap = document.createElement('div');
+        wrap.className = 'tech-stack';
+        (project.techStack || []).forEach((t) => {
+            const tag = document.createElement('span');
+            tag.className = 'tag';
+            tag.textContent = t;
+            wrap.appendChild(tag);
         });
+        return wrap;
+    }
+
+    function buildActions(project, lang, opts) {
+        const dict = i18n[lang] || i18n.en;
+        const actions = document.createElement('div');
+        actions.className = 'project-actions';
+        const featured = !!opts && opts.featured;
+
+        if (project.repoUrl) {
+            const a = document.createElement('a');
+            a.href = project.repoUrl;
+            a.target = '_blank';
+            a.rel = 'noopener';
+            a.className = 'btn btn-sm ' + (featured ? 'btn-warm' : 'btn-outline');
+            a.innerHTML = GITHUB_ICON;
+            const label = document.createElement('span');
+            label.textContent = featured ? (dict['btn-open-repo'] || 'Open repository')
+                                          : (dict['btn-view-repo'] || 'View on GitHub');
+            a.appendChild(label);
+            actions.appendChild(a);
+        } else {
+            const a = document.createElement('a');
+            a.href = '#';
+            a.className = 'btn btn-outline btn-sm';
+            a.setAttribute('aria-disabled', 'true');
+            a.innerHTML = LOCK_ICON;
+            const label = document.createElement('span');
+            label.textContent = dict['private-repo'] || 'Private repo';
+            a.appendChild(label);
+            actions.appendChild(a);
+        }
+
+        if (project.demoUrl) {
+            const a = document.createElement('a');
+            a.href = project.demoUrl;
+            a.target = '_blank';
+            a.rel = 'noopener';
+            a.className = 'btn btn-ghost btn-sm';
+            a.innerHTML = EXTERNAL_ICON;
+            const label = document.createElement('span');
+            label.textContent = 'Live demo';
+            a.appendChild(label);
+            actions.appendChild(a);
+        }
+
+        return actions;
+    }
+
+    function buildBody(project, lang, opts) {
+        const dict = i18n[lang] || i18n.en;
+        const body = document.createElement('div');
+        body.className = 'project-body';
+
+        if (opts && opts.featured) {
+            const tag = document.createElement('span');
+            tag.className = 'featured-tag';
+            tag.textContent = dict['featured-tag'] || 'Featured';
+            body.appendChild(tag);
+        }
+
+        body.appendChild(buildMeta(project));
+
+        const h3 = document.createElement('h3');
+        h3.textContent = project.title || '';
+        body.appendChild(h3);
+
+        const p = document.createElement('p');
+        const useLong = !!(opts && opts.featured) && project.longDesc;
+        p.textContent = useLong ? project.longDesc : (project.shortDesc || '');
+        body.appendChild(p);
+
+        body.appendChild(buildTechStack(project));
+        body.appendChild(buildActions(project, lang, opts));
+        return body;
+    }
+
+    function buildFeaturedNode(project, lang) {
+        const article = document.createElement('article');
+        article.className = 'card project-featured';
+        article.setAttribute('data-cat', project.category);
+        article.setAttribute('data-reveal', '');
+        article.appendChild(buildVisual(project));
+        article.appendChild(buildBody(project, lang, { featured: true }));
+        return article;
+    }
+
+    function buildCardNode(project, lang) {
+        const article = document.createElement('article');
+        article.className = 'card project-card';
+        article.setAttribute('data-cat', project.category);
+        article.setAttribute('data-reveal', '');
+        article.appendChild(buildVisual(project));
+        article.appendChild(buildBody(project, lang, { featured: false }));
+        return article;
+    }
+
+    function updateFilterCounts(projects) {
+        const buttons = $$('.filter-btn');
+        if (!buttons.length) return;
+        const pad = (n) => String(n).padStart(2, '0');
+        buttons.forEach((btn) => {
+            const f = btn.dataset.filter;
+            const n = f === 'all' ? projects.length : projects.filter((p) => p.category === f).length;
+            const countEl = btn.querySelector('.count');
+            if (countEl) countEl.textContent = pad(n);
+        });
+    }
+
+    function showEmptyState(slot, lang, retry) {
+        if (!slot) return;
+        slot.innerHTML = '';
+        const div = document.createElement('div');
+        div.className = 'empty-state';
+        const msg = document.createElement('p');
+        msg.textContent = (lang === 'ar' ? 'تعذّر تحميل المشاريع.'
+                          : lang === 'he' ? 'לא ניתן לטעון את הפרויקטים.'
+                          : "Couldn't load projects.");
+        div.appendChild(msg);
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'btn btn-outline btn-sm';
+        btn.textContent = (lang === 'ar' ? 'إعادة المحاولة'
+                          : lang === 'he' ? 'נסה שוב'
+                          : 'Retry');
+        btn.addEventListener('click', retry);
+        div.appendChild(btn);
+        slot.appendChild(div);
+    }
+
+    async function renderProjects() {
+        const lang = document.documentElement.lang || localStorage.getItem('preferredLang') || 'en';
+
+        const homeFeatured = $('#home-featured-slot');
+        const homeGrid = $('#home-projects-grid');
+        const projFeatured = $('#featured-slot');
+        const projGrid = $('#projects-grid');
+
+        if (!homeFeatured && !homeGrid && !projFeatured && !projGrid) return;
+
+        let projects;
+        try {
+            projects = await loadProjects(lang);
+        } catch (err) {
+            // eslint-disable-next-line no-console
+            console.error('[projects] load failed', err);
+            [homeFeatured, homeGrid, projFeatured, projGrid].forEach((slot) => {
+                if (slot) showEmptyState(slot, lang, () => { _projectCache = null; renderProjects(); });
+            });
+            return;
+        }
+
+        const featured = projects.find((p) => p.featured);
+        const rest = projects.filter((p) => !p.featured);
+
+        if (homeFeatured) {
+            homeFeatured.innerHTML = '';
+            if (featured) homeFeatured.appendChild(buildFeaturedNode(featured, lang));
+        }
+        if (homeGrid) {
+            homeGrid.innerHTML = '';
+            rest.slice(0, 2).forEach((p, i) => {
+                const node = buildCardNode(p, lang);
+                if (i > 0) node.style.setProperty('--reveal-delay', (i * 80) + 'ms');
+                homeGrid.appendChild(node);
+            });
+            homeGrid.removeAttribute('aria-busy');
+        }
+        if (projFeatured) {
+            projFeatured.innerHTML = '';
+            if (featured) projFeatured.appendChild(buildFeaturedNode(featured, lang));
+        }
+        if (projGrid) {
+            projGrid.innerHTML = '';
+            rest.forEach((p, i) => {
+                const node = buildCardNode(p, lang);
+                if (i > 0) node.style.setProperty('--reveal-delay', ((i % 3) * 80) + 'ms');
+                projGrid.appendChild(node);
+            });
+            projGrid.removeAttribute('aria-busy');
+        }
+
+        updateFilterCounts(projects);
+        initReveal();
+        initFilters();
+        initCursorSpotlight();
     }
 
     /* ------------------------------------------------------------------ */
@@ -701,6 +973,8 @@
         if (reducedMotion()) return;
         const targets = $$('.card, .cap, .project-featured');
         targets.forEach(el => {
+            if (el.dataset.spotlight === '1') return;
+            el.dataset.spotlight = '1';
             el.addEventListener('pointermove', (e) => {
                 const r = el.getBoundingClientRect();
                 const x = ((e.clientX - r.left) / r.width) * 100;
@@ -833,7 +1107,6 @@
         initNav();
         initLanguage();
         initReveal();
-        initFilters();
         initScrollspy();
         initStatsCountup();
         initCursorSpotlight();
@@ -842,5 +1115,6 @@
         initMagneticButtons();
         initScrollProgress();
         initMarquee();
+        renderProjects();
     });
 })();

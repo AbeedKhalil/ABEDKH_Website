@@ -1,0 +1,7 @@
+[build]
+  publish = "Frontend"
+
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"

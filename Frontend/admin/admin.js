@@ -38,7 +38,8 @@
             }
         }
 
-        const res = await fetch(path, init);
+        const base = window.PORTFOLIO_API_BASE || '';
+        const res = await fetch(base + path, init);
         if (res.status === 401 && path.startsWith('/api/admin')) {
             clearToken();
             navigateTo('#/login');

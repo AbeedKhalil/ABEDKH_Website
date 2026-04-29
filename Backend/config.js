@@ -24,6 +24,11 @@ const DB_PATH = path.isAbsolute(dbPathRaw) ? dbPathRaw : path.join(repoRoot, dbP
 const UPLOADS_DIR = path.isAbsolute(uploadsRaw) ? uploadsRaw : path.join(repoRoot, uploadsRaw);
 const FRONTEND_DIR = path.join(repoRoot, 'Frontend');
 
+const CORS_ORIGINS = (process.env.CORS_ORIGINS || '')
+    .split(',')
+    .map((s) => s.trim())
+    .filter(Boolean);
+
 module.exports = {
     PORT,
     JWT_SECRET,
@@ -31,6 +36,7 @@ module.exports = {
     DB_PATH,
     UPLOADS_DIR,
     FRONTEND_DIR,
+    CORS_ORIGINS,
     BACKEND_ROOT: backendRoot,
     REPO_ROOT: repoRoot
 };

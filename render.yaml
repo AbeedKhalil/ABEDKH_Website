@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: abedkh-portfolio-api
+    runtime: node
+    rootDir: Backend
+    buildCommand: npm install
+    startCommand: node server.js
+    plan: free
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false
+      - key: DB_PATH
+        value: /var/data/portfolio.sqlite
+      - key: UPLOADS_DIR
+        value: /var/data/uploads
+    disk:
+      name: portfolio-data
+      mountPath: /var/data
+      sizeGB: 1

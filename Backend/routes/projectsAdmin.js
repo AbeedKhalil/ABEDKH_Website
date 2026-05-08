@@ -10,7 +10,10 @@ const router = express.Router();
 
 router.use(verifyJWT);
 
-const VALID_CATEGORIES = new Set(['web', 'vision', 'game', 'auto']);
+const VALID_CATEGORIES = new Set([
+    'web', 'vision', 'game', 'auto',
+    'cybersecurity', 'machine-learning-data-science', 'software-engineering'
+]);
 const SLUG_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 const TEXT_FIELDS = [
     'title_en', 'title_ar', 'title_he',

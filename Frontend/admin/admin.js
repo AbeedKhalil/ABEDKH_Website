@@ -10,8 +10,19 @@
     const TOAST = document.getElementById('toast');
     const LOGOUT_BTN = document.getElementById('logout-btn');
 
-    const CATEGORIES = ['web', 'vision', 'game', 'auto'];
-    const CATEGORY_LABELS = { web: 'Web', vision: 'Vision', game: 'Game', auto: 'Automation' };
+    const CATEGORIES = [
+        'web', 'vision', 'game', 'auto',
+        'cybersecurity', 'machine-learning-data-science', 'software-engineering'
+    ];
+    const CATEGORY_LABELS = {
+        web: 'Web',
+        vision: 'Vision',
+        game: 'Game',
+        auto: 'Automation',
+        cybersecurity: 'Cybersecurity',
+        'machine-learning-data-science': 'ML & Data Science',
+        'software-engineering': 'Software Engineering'
+    };
     const LANGS = [
         { code: 'en', label: 'EN', name: 'English', dir: 'ltr' },
         { code: 'ar', label: 'AR', name: 'Arabic', dir: 'rtl' },

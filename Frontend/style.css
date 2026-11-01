@@ -305,6 +305,8 @@ body { background-color: var(--color-paper); color: var(--color-ink); }
   line-height: 1.2;
 }
 .plate-line { display: block; }
+/* the Hebrew name is shown only when the site is read in Hebrew */
+html:not([lang="he"]) .plate-line[lang="he"] { display: none; }
 .poster {
   max-width: none;
   font-size: min(var(--text-poster), 17svh);

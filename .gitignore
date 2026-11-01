@@ -9,3 +9,8 @@ Thumbs.db
 Backend/node_modules/
 Backend/data/
 Backend/uploads/
+
+.agents/
+.hallmark/
+Frontend/.hallmark/
+skills-lock.json

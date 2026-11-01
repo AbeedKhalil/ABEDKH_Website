@@ -1,18 +1,30 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" data-theme="dark">
+<html lang="en" dir="ltr" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Abd AlRahman Khalil — Computer Science engineer focused on full-stack development, QA automation, and reliable IT systems.">
-    <meta name="theme-color" content="#0a0a0d">
-    <meta property="og:title" content="Abd AlRahman Khalil — Engineering Portfolio">
-    <meta property="og:description" content="Full-stack developer · QA automation · L1/L2 technical support engineer.">
+    <meta name="description" content="Abd AlRahman Khalil, a computer science engineer in Jerusalem. Full-stack development, QA automation, and IT support.">
+    <meta name="theme-color" content="#e7ebed">
+    <meta property="og:title" content="Abd AlRahman Khalil">
+    <meta property="og:description" content="Computer science engineer in Jerusalem. Full-stack, QA automation, and IT support.">
     <meta property="og:type" content="profile">
     <link rel="icon" type="image/jpeg" href="assets/profile.jpg">
-    <title>Abd AlRahman Khalil — Engineering Portfolio</title>
+    <title>Abd AlRahman Khalil</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Hedvig+Letters+Serif&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+    (function () {
+        try {
+            var stored = localStorage.getItem('theme');
+            var light = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+            var theme = stored || (light ? 'light' : 'dark');
+            document.documentElement.setAttribute('data-theme', theme);
+            var meta = document.querySelector('meta[name="theme-color"]');
+            if (meta) meta.setAttribute('content', theme === 'light' ? '#e7ebed' : '#1b2226');
+        } catch (e) {}
+    })();
+    </script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,14 +32,11 @@
 <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
 <header class="site-header" id="site-header">
-    <div class="container nav-container">
+    <div class="nav-pill crop">
         <a href="index.html" class="brand" aria-label="Home">
-            <img src="assets/profile.jpg" alt="" class="brand-avatar" aria-hidden="true">
-            <span>
-                <span class="brand-name">Abd AlRahman Khalil</span>
-            </span>
+            <img src="assets/profile.jpg" alt="" class="brand-avatar" width="28" height="28">
+            <span class="brand-name">Abd AlRahman Khalil</span>
         </a>
-
         <nav aria-label="Primary">
             <ul class="nav-links" id="nav-links">
                 <li><a href="index.html" data-i18n="nav-home">Home</a></li>
@@ -36,274 +45,244 @@
                 <li><a href="contact.html" data-i18n="nav-contact">Contact</a></li>
             </ul>
         </nav>
-
         <div class="controls">
             <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle theme">
-                <svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
             </button>
             <select class="lang-switcher" id="lang-select" aria-label="Select language">
                 <option value="en">EN</option>
                 <option value="he">עב</option>
                 <option value="ar">عر</option>
             </select>
-            <button class="mobile-toggle" id="mobile-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+            <button class="mobile-toggle" id="mobile-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"><span class="menu-bars" aria-hidden="true"></span></button>
         </div>
     </div>
 </header>
 
 <main id="main">
-    <!-- HERO -->
-    <section class="hero container">
-        <div class="hero-grid">
-            <div class="hero-text" data-reveal>
-                <span class="status" style="margin-bottom: 1.4rem;">
-                    <span class="status-dot" aria-hidden="true"></span>
-                    <span data-i18n="status-open">Open to new opportunities</span>
-                </span>
-                <span class="eyebrow" data-num="00" data-i18n="ey-portfolio">Portfolio · 2026</span>
-                <h1 class="display">
-                    <span data-i18n="hero-stmt-1">Engineering</span>
-                    <span class="italic-accent" data-i18n="hero-stmt-accent">at the seam</span>
-                    <span data-i18n="hero-stmt-2">of code &amp; infrastructure.</span>
-                </h1>
-                <p class="hero-tagline">
-                    <span data-i18n="hero-name">Abd AlRahman Khalil</span>
-                    <span class="tag-sep">·</span>
-                    <span class="role-rotate" id="role-rotate" data-i18n="hero-role-1">Computer Science</span>
-                    <span class="tag-sep">·</span>
-                    <span>~/jerusalem</span>
-                </p>
-                <p class="hero-desc" data-i18n="hero-desc">
-                    I build dependable software and operate the systems behind it — full-stack web apps, QA automation, and L1/L2 support for thousands of users. Engineering with a bias for stability, observability, and clean execution.
-                </p>
-                <div class="btn-group">
-                    <a href="projects.html" class="btn btn-primary" data-magnetic>
-                        <span data-i18n="btn-projects">View Projects</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                    </a>
-                    <a href="assets/Abed_Khalil_CV.pdf" target="_blank" rel="noopener" class="btn btn-outline">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                        <span data-i18n="btn-cv">Download CV</span>
-                    </a>
+    <section class="hero proof">
+        <div class="container">
+            <div class="letter-sheet crop">
+                <p class="byline"><span data-i18n="hero-place">Jerusalem</span> <time datetime="2026">2026</time></p>
+                <h1 data-i18n="hero-salute">Hello. I’m Abd AlRahman Khalil.</h1>
+                <p class="lead" data-i18n="hero-lead">I build software and the systems under it.</p>
+                <p class="byline" role="status" data-i18n="status-open">Open to new opportunities</p>
+                <div class="hero-actions">
+                    <a href="contact.html" class="btn btn-primary"><span data-i18n="btn-contact">Get in touch</span></a>
+                    <a href="projects.html" class="text-link" data-i18n="btn-projects">View projects</a>
                 </div>
-            </div>
-
-            <div class="hero-aside" data-reveal style="--reveal-delay: 120ms;">
-                <div class="profile-card" id="profile-card">
-                    <span class="profile-corner">
-                        <span class="status-dot" aria-hidden="true"></span>
-                        <span data-i18n="card-available">Available</span>
-                    </span>
-                    <div class="profile-image-wrap">
-                        <img src="assets/profile.jpg" alt="Portrait of Abd AlRahman Khalil">
-                    </div>
-                    <div class="profile-meta">
-                        <div class="name">Abd AlRahman Khalil</div>
-                        <div class="role">~/jerusalem · cs.engineer</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Stats -->
-        <div class="stats-strip" data-reveal style="--reveal-delay: 220ms;">
-            <div class="stat">
-                <div class="stat-num"><span data-count="4500">0</span><small>+</small></div>
-                <div class="stat-label" data-i18n="stat-1">Users supported</div>
-            </div>
-            <div class="stat">
-                <div class="stat-num"><span data-count="100">0</span><small>%</small></div>
-                <div class="stat-label" data-i18n="stat-2">SLA compliance</div>
-            </div>
-            <div class="stat">
-                <div class="stat-num"><span data-count="6">0</span><small>+</small></div>
-                <div class="stat-label" data-i18n="stat-3">Shipped projects</div>
-            </div>
-            <div class="stat">
-                <div class="stat-num"><span data-count="80">0</span><small>%</small></div>
-                <div class="stat-label" data-i18n="stat-4">Test coverage</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="container" id="about">
-        <div data-reveal>
-            <span class="eyebrow" data-num="01" data-i18n="ey-about">About</span>
-        </div>
-        <div class="about-grid">
-            <div data-reveal>
-                <h2 class="display"><span data-i18n="about-h2-1">Hybrid</span> <span class="italic-accent" data-i18n="about-h2-accent">by design</span><span data-i18n="about-h2-2">.</span></h2>
-                <p class="pullquote" data-i18n="quote-1">"Stability is a feature. Observability is the other half."</p>
-            </div>
-            <div class="about-prose" data-reveal style="--reveal-delay: 120ms;">
-                <p data-i18n="about-p1">I'm a detail-oriented Computer Science professional bridging the gap between software development and IT infrastructure. With a strong foundation in OOP, data structures, and algorithms, I approach software with a focus on stability and performance.</p>
-                <p data-i18n="about-p2">My background managing L1/L2 technical support for thousands of users has instilled a rigorous QA mindset. I excel at root-cause analysis, log forensics, and automating away repetitive work — whether building full-stack apps, computer-vision scripts, or hardening enterprise environments.</p>
-
-                <div class="principles">
-                    <div class="principle">
-                        <span class="principle-num">01</span>
-                        <span class="principle-title" data-i18n="principle-1-t">Stability first</span>
-                        <p class="principle-body" data-i18n="principle-1-d">Stability and observability before features — production should fail loudly, not silently.</p>
-                    </div>
-                    <div class="principle">
-                        <span class="principle-num">02</span>
-                        <span class="principle-title" data-i18n="principle-2-t">Automate the boring</span>
-                        <p class="principle-body" data-i18n="principle-2-d">Anything done twice gets a script. Anything done weekly gets a pipeline. Document the rest.</p>
-                    </div>
-                    <div class="principle">
-                        <span class="principle-num">03</span>
-                        <span class="principle-title" data-i18n="principle-3-t">Tests as hygiene</span>
-                        <p class="principle-body" data-i18n="principle-3-d">Coverage isn't a metric, it's a habit — like washing your hands before surgery.</p>
-                    </div>
+                <p><a href="assets/Abed_Khalil_CV.pdf" target="_blank" rel="noopener" class="text-link" data-i18n="btn-cv">Download CV</a></p>
+                <svg class="signature" viewBox="0 0 240 64" role="img" aria-label="Abd AlRahman Khalil" width="180" height="48">
+                    <!-- Stylized initials AK. Replace the path with a trace of Abed’s ink. -->
+                    <path pathLength="1" d="M16 56 L44 14 L72 56 M30 38 H58 M98 12 V58 M98 34 L138 14 M98 36 L142 58"/>
+                </svg>
+                <span class="guide" aria-hidden="true"></span>
+                <div class="portrait-frame crop">
+                    <img src="assets/profile.jpg" width="530" height="530" alt="Portrait of Abd AlRahman Khalil">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CAPABILITIES -->
-    <section class="container">
-        <div class="section-head" data-reveal>
-            <span class="eyebrow" data-num="02" data-i18n="ey-cap">Capabilities</span>
-            <h2 class="display"><span data-i18n="cap-title-1">What</span> <span class="italic-accent" data-i18n="cap-title-accent">I do</span><span data-i18n="cap-title-2">.</span></h2>
-            <p data-i18n="cap-sub">A practical mix of building, testing, and supporting — across the stack and across the org.</p>
-        </div>
-        <div class="cap-grid">
-            <article class="cap" data-reveal>
-                <span class="cap-num">01</span>
-                <div class="cap-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+    <section class="section">
+        <div class="container">
+            <h2 data-i18n="work-title">Recent projects</h2>
+            <p class="prose" data-i18n="work-sub">Full-stack, computer vision, automation, and game engineering.</p>
+            <div id="home-featured-slot">
+<article class="project-featured" data-cat="web">
+                <div class="project-visual" aria-hidden="true"><span>2026</span></div>
+                <div class="project-body">
+                    <span class="featured-tag">Featured</span>
+                    <div class="project-meta"><span>Web</span><span>2026</span></div>
+                    <h3>KAYA SWIM</h3>
+                    <p>A course site and founder page for KAYA SWIM. Hebrew at the root, English at /en/, static HTML from Astro and Tailwind, with each call to action opening WhatsApp already addressed to that context.</p>
+                    <div class="tech-stack"><span class="tag">Astro</span><span class="tag">Tailwind CSS</span><span class="tag">TypeScript</span></div>
+                    <div class="project-actions"><a class="btn btn-sm" href="https://github.com/AbeedKhalil/kaya-swim" target="_blank" rel="noopener">Open repository</a><a class="text-link" href="https://abeedkhalil.github.io/kaya-swim/" target="_blank" rel="noopener">Live demo</a></div>
                 </div>
-                <h3 data-i18n="cap-1-t">Full-stack development</h3>
-                <p data-i18n="cap-1-d">Node.js, Express, REST APIs, MariaDB / MySQL, Sequelize. Authentication, sessions, and persistent storage from the schema up.</p>
             </article>
-            <article class="cap" data-reveal style="--reveal-delay: 100ms;">
-                <span class="cap-num">02</span>
-                <div class="cap-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+</div>
+            <div class="project-list" id="home-projects-grid">
+<article class="project-card" data-cat="machine-learning-data-science">
+                <div class="project-visual" aria-hidden="true"><span>2025</span></div>
+                <div class="project-body">
+                    
+                    <div class="project-meta"><span>ML and data science</span><span>2025</span></div>
+                    <h3>TruthLens AI</h3>
+                    <p>A React and TypeScript app that scores short text for bias and misinformation cues with Hugging Face zero-shot classification.</p>
+                    <div class="tech-stack"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Hugging Face</span></div>
+                    <div class="project-actions"><a class="btn btn-sm" href="https://github.com/AbeedKhalil/TruthLensAI" target="_blank" rel="noopener">View on GitHub</a></div>
                 </div>
-                <h3 data-i18n="cap-2-t">QA &amp; automation</h3>
-                <p data-i18n="cap-2-d">Selenium, Playwright, Postman, Appium, unit testing. Build pipelines that fail loudly so production doesn't.</p>
             </article>
-            <article class="cap" data-reveal style="--reveal-delay: 200ms;">
-                <span class="cap-num">03</span>
-                <div class="cap-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+<article class="project-card" data-cat="web">
+                <div class="project-visual" aria-hidden="true"><span>2025</span></div>
+                <div class="project-body">
+                    
+                    <div class="project-meta"><span>Web</span><span>2025</span></div>
+                    <h3>Full-Stack Chatroom</h3>
+                    <p>Session auth, REST messaging, and persistent storage with paranoid soft-deletion. DOM updates via polling.</p>
+                    <div class="tech-stack"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">Sequelize</span><span class="tag">MariaDB</span></div>
+                    <div class="project-actions"><a class="btn btn-sm" href="https://github.com/Solange-s-Courses/ex5-express-abed-rayan.git" target="_blank" rel="noopener">View on GitHub</a></div>
                 </div>
-                <h3 data-i18n="cap-3-t">Support &amp; infra</h3>
-                <p data-i18n="cap-3-d">Active Directory, DNS/DHCP, TCP/IP, Windows Server, Linux. PowerShell automation and RCA-driven documentation.</p>
             </article>
+</div>
+            <p style="margin-top: var(--space-lg)"><a href="projects.html" class="text-link" data-i18n="btn-view-all">View all projects</a></p>
         </div>
     </section>
 
-    <!-- FEATURED PROJECTS -->
-    <section class="container">
-        <div class="section-head" data-reveal style="display: flex; justify-content: space-between; align-items: end; max-width: none; gap: 2rem; flex-wrap: wrap;">
-            <div style="max-width: 540px;">
-                <span class="eyebrow" data-num="03" data-i18n="ey-work">Selected work</span>
-                <h2 class="display"><span data-i18n="work-title-1">Recent</span> <span class="italic-accent" data-i18n="work-title-accent">projects</span><span data-i18n="work-title-2">.</span></h2>
-                <p data-i18n="work-sub">A small slice — full-stack, computer vision, automation, and game engineering.</p>
+    <section class="section-l" id="about">
+        <div class="container split">
+            <div>
+                <h2 data-i18n="about-h2">Hybrid by design.</h2>
+                <p class="pullquote" data-i18n="quote-1">“Stability is a feature. Observability is the other half.”</p>
             </div>
-            <a href="projects.html" class="btn btn-ghost">
-                <span data-i18n="btn-view-all">View all projects</span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
+            <div class="prose">
+                <p data-i18n="hero-desc">I build dependable software and operate the systems behind it: full-stack web apps, QA automation, and L1/L2 support for thousands of users. Engineering with a bias for stability, observability, and clean execution.</p>
+                <p data-i18n="about-p1">I’m a detail-oriented Computer Science professional bridging the gap between software development and IT infrastructure. With a strong foundation in OOP, data structures, and algorithms, I approach software with a focus on stability and performance.</p>
+                <p data-i18n="about-p2">My background managing L1/L2 technical support for thousands of users has instilled a rigorous QA mindset. I do root-cause analysis, log forensics, and automate repetitive work, whether building full-stack apps, computer-vision scripts, or hardening enterprise environments.</p>
+                <ul class="roles">
+                    <li data-i18n="hero-role-1">Computer Science</li>
+                    <li data-i18n="hero-role-2">QA and automation</li>
+                    <li data-i18n="hero-role-3">IT engineering</li>
+                </ul>
+            </div>
         </div>
-
-        <!-- Featured + recent projects (rendered by script.js from /api/projects) -->
-        <div id="home-featured-slot" data-reveal></div>
-
-        <div class="grid-2" id="home-projects-grid" aria-busy="true">
-            <div class="project-skeleton" aria-hidden="true"></div>
-            <div class="project-skeleton" aria-hidden="true"></div>
+        <div class="container">
+            <ol class="principles">
+                <li>
+                    <span>1</span>
+                    <div>
+                        <strong data-i18n="principle-1-t">Stability first</strong>
+                        <p data-i18n="principle-1-d">Stability and observability before features. Production should fail loudly, not silently.</p>
+                    </div>
+                </li>
+                <li>
+                    <span>2</span>
+                    <div>
+                        <strong data-i18n="principle-2-t">Automate the boring</strong>
+                        <p data-i18n="principle-2-d">Anything done twice gets a script. Anything done weekly gets a pipeline. Document the rest.</p>
+                    </div>
+                </li>
+                <li>
+                    <span>3</span>
+                    <div>
+                        <strong data-i18n="principle-3-t">Tests as hygiene</strong>
+                        <p data-i18n="principle-3-d">Coverage isn’t a metric, it’s a habit, like washing your hands before surgery.</p>
+                    </div>
+                </li>
+            </ol>
         </div>
     </section>
 
-    <!-- TOOLKIT MARQUEE -->
-    <section class="container">
-        <div class="section-head" data-reveal style="margin-bottom: 1.5rem;">
-            <span class="eyebrow" data-num="04" data-i18n="ey-toolkit">Toolkit</span>
-            <h2 class="display"><span data-i18n="tool-title-1">Tools that</span> <span class="italic-accent" data-i18n="tool-title-accent">earn their keep</span><span data-i18n="tool-title-2">.</span></h2>
+    <section class="section-s">
+        <div class="container">
+            <h2 data-i18n="cap-title">What I do</h2>
+            <div class="rows">
+                <article class="row">
+                    <h3 data-i18n="cap-1-t">Full-stack development</h3>
+                    <p data-i18n="cap-1-d">Node.js, Express, REST APIs, MariaDB / MySQL, Sequelize. Authentication, sessions, and persistent storage from the schema up.</p>
+                </article>
+                <article class="row">
+                    <h3 data-i18n="cap-2-t">QA and automation</h3>
+                    <p data-i18n="cap-2-d">Selenium, Playwright, Postman, Appium, unit testing. Build pipelines that fail loudly so production doesn’t.</p>
+                </article>
+                <article class="row">
+                    <h3 data-i18n="cap-3-t">Support and infra</h3>
+                    <p data-i18n="cap-3-d">Active Directory, DNS/DHCP, TCP/IP, Windows Server, Linux. PowerShell automation and RCA-driven documentation.</p>
+                </article>
+            </div>
+            <p class="tool-line">
+                <span>Node.js</span><span>Express</span><span>Python</span><span>Selenium</span><span>Playwright</span><span>MariaDB</span><span>Sequelize</span><span>PowerShell</span><span>Active Directory</span><span>C++</span><span>SFML</span><span>MATLAB</span><span>Docker</span><span>Postman</span><span>Linux</span>
+            </p>
         </div>
     </section>
-    <div class="marquee" data-reveal aria-hidden="true">
-        <div class="marquee-track" id="marquee-track">
-            <span class="marquee-item">Node.js</span>
-            <span class="marquee-item">Express</span>
-            <span class="marquee-item">Python</span>
-            <span class="marquee-item">Selenium</span>
-            <span class="marquee-item">Playwright</span>
-            <span class="marquee-item">MariaDB</span>
-            <span class="marquee-item">Sequelize</span>
-            <span class="marquee-item">PowerShell</span>
-            <span class="marquee-item">Active Directory</span>
-            <span class="marquee-item">C++</span>
-            <span class="marquee-item">SFML</span>
-            <span class="marquee-item">MATLAB</span>
-            <span class="marquee-item">Docker</span>
-            <span class="marquee-item">Postman</span>
-            <span class="marquee-item">Linux</span>
-        </div>
-    </div>
 
-    <!-- CURRENTLY -->
-    <section class="container">
-        <div class="section-head" data-reveal>
-            <span class="eyebrow" data-num="05" data-i18n="ey-now">Currently</span>
-            <h2 class="display"><span data-i18n="now-title-1">What I'm</span> <span class="italic-accent" data-i18n="now-title-accent">on right now</span><span data-i18n="now-title-2">.</span></h2>
-        </div>
-        <div class="now-grid" data-reveal>
-            <div class="now-item">
-                <div class="now-label" data-i18n="now-1-l">Building</div>
-                <div class="now-title" data-i18n="now-1-t">Automation toolkit at Hadassah</div>
-                <p class="now-body" data-i18n="now-1-d">PowerShell pipelines for AD onboarding and recurring infra checks.</p>
-            </div>
-            <div class="now-item">
-                <div class="now-label" data-i18n="now-2-l">Reading</div>
-                <div class="now-title" data-i18n="now-2-t">Designing Data-Intensive Applications</div>
-                <p class="now-body" data-i18n="now-2-d">Kleppmann — chasing the parts about replication and consensus.</p>
-            </div>
-            <div class="now-item">
-                <div class="now-label" data-i18n="now-3-l">Learning</div>
-                <div class="now-title" data-i18n="now-3-t">Playwright + Postman flows</div>
-                <p class="now-body" data-i18n="now-3-d">Wiring API contract tests into CI to fail loudly before deploys.</p>
+    <section class="section">
+        <div class="container">
+            <h2 data-i18n="fig-title">The record</h2>
+            <div class="figures">
+                <div class="stat">
+                    <div class="stat-num"><span data-count="4500">4,500</span> <small>+</small></div>
+                    <div class="stat-label" data-i18n="stat-1">Users supported</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num"><span data-count="100">100</span><small>%</small></div>
+                    <div class="stat-label" data-i18n="stat-2">SLA compliance</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num"><span data-count="11">11</span></div>
+                    <div class="stat-label" data-i18n="stat-3">Shipped projects</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num"><span data-count="80">80</span><small>%</small></div>
+                    <div class="stat-label" data-i18n="stat-4">Test coverage</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="container">
-        <div class="cta-banner" data-reveal>
-            <h2 class="display">
-                <span data-i18n="cta-stmt-1">Let's build something</span>
-                <span class="italic-accent" data-i18n="cta-stmt-accent">reliable</span><span data-i18n="cta-stmt-2">.</span>
-            </h2>
-            <p data-i18n="cta-sub">Available for full-time roles in software, QA, and IT engineering. Open to remote and on-site work in Israel.</p>
-            <div class="btn-group">
-                <a href="contact.html" class="btn btn-warm" data-magnetic>
-                    <span data-i18n="btn-contact">Get in touch</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                </a>
-                <a href="resume.html" class="btn btn-ghost">
-                    <span data-i18n="btn-resume">Read my resume</span>
-                </a>
+    <section class="section-l">
+        <div class="container">
+            <h2 data-i18n="now-title">Right now</h2>
+            <div class="rows">
+                <article class="row">
+                    <h3 data-i18n="now-1-l">Building</h3>
+                    <div>
+                        <p><strong data-i18n="now-1-t">Automation toolkit at Hadassah</strong></p>
+                        <p data-i18n="now-1-d">PowerShell pipelines for AD onboarding and recurring infra checks.</p>
+                    </div>
+                </article>
+                <article class="row">
+                    <h3 data-i18n="now-2-l">Reading</h3>
+                    <div>
+                        <p><strong data-i18n="now-2-t">Designing Data-Intensive Applications</strong></p>
+                        <p data-i18n="now-2-d">Kleppmann, the chapters on replication and consensus.</p>
+                    </div>
+                </article>
+                <article class="row">
+                    <h3 data-i18n="now-3-l">Learning</h3>
+                    <div>
+                        <p><strong data-i18n="now-3-t">Playwright and Postman flows</strong></p>
+                        <p data-i18n="now-3-d">Wiring API contract tests into CI so a bad change fails before deploy.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-s">
+        <div class="container">
+            <h2 data-i18n="cta-title">Available for hire</h2>
+            <div class="rows">
+                <article class="row">
+                    <h3 data-i18n="btn-contact">Get in touch</h3>
+                    <p data-i18n="cta-sub">Available for full-time roles in software, QA, and IT engineering. Open to remote and on-site work in Israel.</p>
+                </article>
+                <article class="row">
+                    <h3>Email</h3>
+                    <p><a href="mailto:abed3.khalil168@gmail.com">abed3.khalil168@gmail.com</a></p>
+                </article>
+                <article class="row">
+                    <h3 data-i18n="lbl-phone">Phone</h3>
+                    <p><a href="tel:+972532525262">+972 53-252-5262</a> <a href="contact.html" class="btn btn-primary"><span data-i18n="btn-contact">Get in touch</span></a> <a href="resume.html" class="text-link" data-i18n="btn-resume">Read my resume</a></p>
+                </article>
             </div>
         </div>
     </section>
 </main>
 
-<footer class="site-footer">
+<footer class="site-footer proof">
     <div class="container">
+        <p class="footer-statement" data-i18n="footer-tag">Building dependable systems out of Jerusalem.</p>
+        <svg class="signature" viewBox="0 0 240 64" role="img" aria-label="Abd AlRahman Khalil" width="180" height="48">
+            <path pathLength="1" d="M16 56 L44 14 L72 56 M30 38 H58 M98 12 V58 M98 34 L138 14 M98 36 L142 58"/>
+        </svg>
+        <span class="guide" aria-hidden="true"></span>
         <div class="footer-grid">
             <div class="footer-brand">
-                <a href="index.html" class="brand">
-                    <img src="assets/profile.jpg" alt="" class="brand-avatar" aria-hidden="true">
-                    <span class="brand-name">Abd AlRahman Khalil</span>
-                </a>
-                <p data-i18n="footer-tag">Computer Science · QA &amp; Automation · IT Engineering. Building dependable systems out of Jerusalem.</p>
+                <a href="index.html" class="brand"><span class="brand-name">Abd AlRahman Khalil</span></a>
             </div>
             <div class="footer-col">
-                <h5 data-i18n="footer-nav">Navigate</h5>
+                <p class="footer-label" data-i18n="footer-nav">Navigate</p>
                 <ul>
                     <li><a href="index.html" data-i18n="nav-home">Home</a></li>
                     <li><a href="projects.html" data-i18n="nav-projects">Projects</a></li>
@@ -312,22 +291,22 @@
                 </ul>
             </div>
             <div class="footer-col">
-                <h5 data-i18n="footer-elsewhere">Elsewhere</h5>
+                <p class="footer-label" data-i18n="footer-elsewhere">Elsewhere</p>
                 <ul>
-                    <li><a href="https://github.com/AbeedKhalil" target="_blank" rel="noopener">GitHub ↗</a></li>
-                    <li><a href="https://www.linkedin.com/in/abed-khalil-731294176/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
-                    <li><a href="mailto:abed3.khalil168@gmail.com">Email ↗</a></li>
-                    <li><a href="assets/Abed_Khalil_CV.pdf" target="_blank" rel="noopener">CV ↗</a></li>
+                    <li><a href="https://github.com/AbeedKhalil" target="_blank" rel="noopener">GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/abed-khalil-731294176/" target="_blank" rel="noopener">LinkedIn</a></li>
+                    <li><a href="mailto:abed3.khalil168@gmail.com">Email</a></li>
+                    <li><a href="assets/Abed_Khalil_CV.pdf" target="_blank" rel="noopener">CV</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p data-i18n="footer-rights">© 2026 Abd AlRahman Khalil. All rights reserved.</p>
-            <span class="mono">v3.0 · designed &amp; built in-house</span>
+            <p data-i18n="footer-rights">© 2026 Abd AlRahman Khalil.</p>
         </div>
     </div>
 </footer>
 
+<script src="projects-fallback.js"></script>
 <script src="config.js"></script>
 <script src="script.js"></script>
 </body>

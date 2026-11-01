@@ -2,92 +2,104 @@
 <html lang="en" dir="ltr" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="description" content="Abd AlRahman Khalil, a computer science engineer in Jerusalem. Full-stack development, QA automation, and IT support.">
-    <meta name="theme-color" content="#e7ebed">
     <meta property="og:title" content="Abd AlRahman Khalil">
     <meta property="og:description" content="Computer science engineer in Jerusalem. Full-stack, QA automation, and IT support.">
     <meta property="og:type" content="profile">
+    <meta name="theme-color" content="#202b12">
+    <meta name="color-scheme" content="light dark">
     <link rel="icon" type="image/jpeg" href="assets/profile.jpg">
     <title>Abd AlRahman Khalil</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Hedvig+Letters+Serif&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Rubik:wght@400..800&display=swap" rel="stylesheet">
     <script>
     (function () {
+        var root = document.documentElement;
+        root.classList.add('js');
         try {
             var stored = localStorage.getItem('theme');
             var light = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
             var theme = stored || (light ? 'light' : 'dark');
-            document.documentElement.setAttribute('data-theme', theme);
+            root.setAttribute('data-theme', theme);
             var meta = document.querySelector('meta[name="theme-color"]');
-            if (meta) meta.setAttribute('content', theme === 'light' ? '#e7ebed' : '#1b2226');
+            if (meta) meta.setAttribute('content', theme === 'light' ? '#202b12' : '#1a230d');
         } catch (e) {}
     })();
     </script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="page-home">
 <a href="#main" class="skip-link">Skip to content</a>
 <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
 <header class="site-header" id="site-header">
-    <div class="nav-pill crop">
+    <div class="bar container">
         <a href="index.html" class="brand" aria-label="Home">
-            <img src="assets/profile.jpg" alt="" class="brand-avatar" width="28" height="28">
+            <img src="assets/profile.jpg" alt="" class="brand-avatar" width="32" height="32">
             <span class="brand-name">Abd AlRahman Khalil</span>
         </a>
-        <nav aria-label="Primary">
+        <nav aria-label="Primary" class="primary-nav">
             <ul class="nav-links" id="nav-links">
-                <li><a href="index.html" data-i18n="nav-home">Home</a></li>
-                <li><a href="projects.html" data-i18n="nav-projects">Projects</a></li>
-                <li><a href="resume.html" data-i18n="nav-resume">Resume</a></li>
-                <li><a href="contact.html" data-i18n="nav-contact">Contact</a></li>
+                <li style="--i:0"><a href="index.html" data-i18n="nav-home">Home</a></li>
+                <li style="--i:1"><a href="projects.html" data-i18n="nav-projects">Projects</a></li>
+                <li style="--i:2"><a href="resume.html" data-i18n="nav-resume">Resume</a></li>
+                <li style="--i:3"><a href="contact.html" data-i18n="nav-contact">Contact</a></li>
             </ul>
         </nav>
         <div class="controls">
-            <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle theme">
-                <svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-            </button>
             <select class="lang-switcher" id="lang-select" aria-label="Select language">
                 <option value="en">EN</option>
                 <option value="he">עב</option>
                 <option value="ar">عر</option>
             </select>
-            <button class="mobile-toggle" id="mobile-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"><span class="menu-bars" aria-hidden="true"></span></button>
+            <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle theme">
+                <svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
+            <button class="mobile-toggle" id="mobile-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links"><span class="menu-bars" aria-hidden="true"></span></button>
         </div>
     </div>
 </header>
 
 <main id="main">
-    <section class="hero proof">
-        <div class="container">
-            <div class="letter-sheet crop">
+    <section class="hero field" aria-labelledby="hero-title">
+        <div class="container hero-grid">
+            <div class="hero-top">
                 <p class="byline"><span data-i18n="hero-place">Jerusalem</span> <time datetime="2026">2026</time></p>
-                <h1 data-i18n="hero-salute">Hello. I’m Abd AlRahman Khalil.</h1>
+                <p class="status" role="status" data-i18n="status-open">Open to new opportunities</p>
+            </div>
+            <p class="plate">
+                <span class="plate-line" lang="ar" dir="rtl" style="--i:0">عبد الرحمن خليل</span>
+                <span class="plate-line" lang="he" dir="rtl" style="--i:1">עבד אלרחמן חליל</span>
+            </p>
+            <h1 id="hero-title" class="poster" data-i18n="hero-salute">Hello. I’m Abd AlRahman Khalil.</h1>
+            <div class="hero-copy">
                 <p class="lead" data-i18n="hero-lead">I build software and the systems under it.</p>
-                <p class="byline" role="status" data-i18n="status-open">Open to new opportunities</p>
                 <div class="hero-actions">
                     <a href="contact.html" class="btn btn-primary"><span data-i18n="btn-contact">Get in touch</span></a>
                     <a href="projects.html" class="text-link" data-i18n="btn-projects">View projects</a>
-                </div>
-                <p><a href="assets/Abed_Khalil_CV.pdf" target="_blank" rel="noopener" class="text-link" data-i18n="btn-cv">Download CV</a></p>
-                <svg class="signature" viewBox="0 0 240 64" role="img" aria-label="Abd AlRahman Khalil" width="180" height="48">
-                    <!-- Stylized initials AK. Replace the path with a trace of Abed’s ink. -->
-                    <path pathLength="1" d="M16 56 L44 14 L72 56 M30 38 H58 M98 12 V58 M98 34 L138 14 M98 36 L142 58"/>
-                </svg>
-                <span class="guide" aria-hidden="true"></span>
-                <div class="portrait-frame crop">
-                    <img src="assets/profile.jpg" width="530" height="530" alt="Portrait of Abd AlRahman Khalil">
+                    <a href="assets/Abed_Khalil_CV.pdf" target="_blank" rel="noopener" class="text-link" data-i18n="btn-cv">Download CV</a>
                 </div>
             </div>
+            <figure class="portrait">
+                <div class="portrait-frame">
+                    <img src="assets/profile.jpg" width="530" height="530" alt="Portrait of Abd AlRahman Khalil">
+                </div>
+                <svg class="signature" viewBox="0 0 240 80" role="img" aria-label="Abd AlRahman Khalil" width="200" height="66">
+                    <!-- A monogram in one stroke. Replace the path with a trace of Abed’s own signature. -->
+                    <path pathLength="1" d="M14 64 C24 44 36 22 48 10 C52 28 56 46 62 64 M28 46 C58 41 92 39 122 41 M106 12 C104 30 101 48 98 66 M142 14 C126 27 113 36 102 42 C118 48 133 58 148 68 M20 74 C84 69 160 70 226 60"/>
+                </svg>
+            </figure>
         </div>
     </section>
 
-    <section class="section">
+    <section class="section work" id="work">
         <div class="container">
-            <h2 data-i18n="work-title">Recent projects</h2>
-            <p class="prose" data-i18n="work-sub">Full-stack, computer vision, automation, and game engineering.</p>
+            <div class="section-head">
+                <h2 data-i18n="work-title">Recent projects</h2>
+                <p class="section-sub" data-i18n="work-sub">Full-stack, computer vision, automation, and game engineering.</p>
+            </div>
             <div id="home-featured-slot">
 <article class="project-featured" data-cat="web">
                 <div class="project-visual" aria-hidden="true"><span>2026</span></div>
@@ -125,44 +137,42 @@
                 </div>
             </article>
 </div>
-            <p style="margin-top: var(--space-lg)"><a href="projects.html" class="text-link" data-i18n="btn-view-all">View all projects</a></p>
+            <p class="more"><a href="projects.html" class="text-link" data-i18n="btn-view-all">View all projects</a></p>
         </div>
     </section>
 
-    <section class="section-l" id="about">
-        <div class="container split">
-            <div>
-                <h2 data-i18n="about-h2">Hybrid by design.</h2>
-                <p class="pullquote" data-i18n="quote-1">“Stability is a feature. Observability is the other half.”</p>
-            </div>
-            <div class="prose">
-                <p data-i18n="hero-desc">I build dependable software and operate the systems behind it: full-stack web apps, QA automation, and L1/L2 support for thousands of users. Engineering with a bias for stability, observability, and clean execution.</p>
-                <p data-i18n="about-p1">I’m a detail-oriented Computer Science professional bridging the gap between software development and IT infrastructure. With a strong foundation in OOP, data structures, and algorithms, I approach software with a focus on stability and performance.</p>
-                <p data-i18n="about-p2">My background managing L1/L2 technical support for thousands of users has instilled a rigorous QA mindset. I do root-cause analysis, log forensics, and automate repetitive work, whether building full-stack apps, computer-vision scripts, or hardening enterprise environments.</p>
+    <section class="section-l about" id="about">
+        <div class="container">
+            <h2 data-i18n="about-h2">Hybrid by design.</h2>
+            <p class="pullquote" data-reveal data-i18n="quote-1">“Stability is a feature. Observability is the other half.”</p>
+            <div class="split">
+                <div class="prose">
+                    <p class="prose-lead" data-i18n="hero-desc">I build dependable software and operate the systems behind it: full-stack web apps, QA automation, and L1/L2 support for thousands of users. Engineering with a bias for stability, observability, and clean execution.</p>
+                    <p data-i18n="about-p1">I’m a detail-oriented Computer Science professional bridging the gap between software development and IT infrastructure. With a strong foundation in OOP, data structures, and algorithms, I approach software with a focus on stability and performance.</p>
+                    <p data-i18n="about-p2">My background managing L1/L2 technical support for thousands of users has instilled a rigorous QA mindset. I do root-cause analysis, log forensics, and automate repetitive work, whether building full-stack apps, computer-vision scripts, or hardening enterprise environments.</p>
+                </div>
                 <ul class="roles">
                     <li data-i18n="hero-role-1">Computer Science</li>
                     <li data-i18n="hero-role-2">QA and automation</li>
                     <li data-i18n="hero-role-3">IT engineering</li>
                 </ul>
             </div>
-        </div>
-        <div class="container">
             <ol class="principles">
-                <li>
+                <li data-reveal style="--reveal-delay:0ms">
                     <span>1</span>
                     <div>
                         <strong data-i18n="principle-1-t">Stability first</strong>
                         <p data-i18n="principle-1-d">Stability and observability before features. Production should fail loudly, not silently.</p>
                     </div>
                 </li>
-                <li>
+                <li data-reveal style="--reveal-delay:80ms">
                     <span>2</span>
                     <div>
                         <strong data-i18n="principle-2-t">Automate the boring</strong>
                         <p data-i18n="principle-2-d">Anything done twice gets a script. Anything done weekly gets a pipeline. Document the rest.</p>
                     </div>
                 </li>
-                <li>
+                <li data-reveal style="--reveal-delay:160ms">
                     <span>3</span>
                     <div>
                         <strong data-i18n="principle-3-t">Tests as hygiene</strong>
@@ -173,7 +183,7 @@
         </div>
     </section>
 
-    <section class="section-s">
+    <section class="section-s capabilities well">
         <div class="container">
             <h2 data-i18n="cap-title">What I do</h2>
             <div class="rows">
@@ -196,12 +206,12 @@
         </div>
     </section>
 
-    <section class="section">
+    <section class="section record field">
         <div class="container">
             <h2 data-i18n="fig-title">The record</h2>
             <div class="figures">
                 <div class="stat">
-                    <div class="stat-num"><span data-count="4500">4,500</span> <small>+</small></div>
+                    <div class="stat-num"><span data-count="4500">4,500</span><small>+</small></div>
                     <div class="stat-label" data-i18n="stat-1">Users supported</div>
                 </div>
                 <div class="stat">
@@ -220,25 +230,25 @@
         </div>
     </section>
 
-    <section class="section-l">
+    <section class="section now">
         <div class="container">
             <h2 data-i18n="now-title">Right now</h2>
-            <div class="rows">
-                <article class="row">
+            <div class="now-track" tabindex="0" aria-label="Right now">
+                <article class="now-item">
                     <h3 data-i18n="now-1-l">Building</h3>
                     <div>
                         <p><strong data-i18n="now-1-t">Automation toolkit at Hadassah</strong></p>
                         <p data-i18n="now-1-d">PowerShell pipelines for AD onboarding and recurring infra checks.</p>
                     </div>
                 </article>
-                <article class="row">
+                <article class="now-item">
                     <h3 data-i18n="now-2-l">Reading</h3>
                     <div>
                         <p><strong data-i18n="now-2-t">Designing Data-Intensive Applications</strong></p>
                         <p data-i18n="now-2-d">Kleppmann, the chapters on replication and consensus.</p>
                     </div>
                 </article>
-                <article class="row">
+                <article class="now-item">
                     <h3 data-i18n="now-3-l">Learning</h3>
                     <div>
                         <p><strong data-i18n="now-3-t">Playwright and Postman flows</strong></p>
@@ -249,37 +259,47 @@
         </div>
     </section>
 
-    <section class="section-s">
+    <section class="section-s hire" id="hire">
         <div class="container">
-            <h2 data-i18n="cta-title">Available for hire</h2>
-            <div class="rows">
-                <article class="row">
-                    <h3 data-i18n="btn-contact">Get in touch</h3>
-                    <p data-i18n="cta-sub">Available for full-time roles in software, QA, and IT engineering. Open to remote and on-site work in Israel.</p>
-                </article>
-                <article class="row">
-                    <h3>Email</h3>
-                    <p><a href="mailto:abed3.khalil168@gmail.com">abed3.khalil168@gmail.com</a></p>
-                </article>
-                <article class="row">
-                    <h3 data-i18n="lbl-phone">Phone</h3>
-                    <p><a href="tel:+972532525262">+972 53-252-5262</a> <a href="contact.html" class="btn btn-primary"><span data-i18n="btn-contact">Get in touch</span></a> <a href="resume.html" class="text-link" data-i18n="btn-resume">Read my resume</a></p>
-                </article>
-            </div>
+            <article class="ticket" data-reveal>
+                <div class="ticket-main">
+                    <h2 data-i18n="cta-title">Available for hire</h2>
+                    <p class="ticket-sub" data-i18n="cta-sub">Available for full-time roles in software, QA, and IT engineering. Open to remote and on-site work in Israel.</p>
+                    <span class="stamp" aria-hidden="true"><span data-i18n="status-open">Open to new opportunities</span></span>
+                </div>
+                <div class="perf" aria-hidden="true"></div>
+                <div class="ticket-stub">
+                    <dl class="ticket-fields">
+                        <div>
+                            <dt>Email</dt>
+                            <dd><a href="mailto:abed3.khalil168@gmail.com">abed3.khalil168@gmail.com</a></dd>
+                        </div>
+                        <div>
+                            <dt data-i18n="lbl-phone">Phone</dt>
+                            <dd><a href="tel:+972532525262">+972 53-252-5262</a></dd>
+                        </div>
+                    </dl>
+                    <div class="ticket-actions">
+                        <a href="contact.html" class="btn btn-primary"><span data-i18n="btn-contact">Get in touch</span></a>
+                        <a href="resume.html" class="text-link" data-i18n="btn-resume">Read my resume</a>
+                    </div>
+                </div>
+            </article>
         </div>
     </section>
 </main>
 
-<footer class="site-footer proof">
+<footer class="site-footer field">
     <div class="container">
         <p class="footer-statement" data-i18n="footer-tag">Building dependable systems out of Jerusalem.</p>
-        <svg class="signature" viewBox="0 0 240 64" role="img" aria-label="Abd AlRahman Khalil" width="180" height="48">
-            <path pathLength="1" d="M16 56 L44 14 L72 56 M30 38 H58 M98 12 V58 M98 34 L138 14 M98 36 L142 58"/>
+        <svg class="signature" viewBox="0 0 240 80" role="img" aria-label="Abd AlRahman Khalil" width="200" height="66" data-reveal>
+            <!-- A monogram in one stroke. Replace the path with a trace of Abed’s own signature. -->
+            <path pathLength="1" d="M14 64 C24 44 36 22 48 10 C52 28 56 46 62 64 M28 46 C58 41 92 39 122 41 M106 12 C104 30 101 48 98 66 M142 14 C126 27 113 36 102 42 C118 48 133 58 148 68 M20 74 C84 69 160 70 226 60"/>
         </svg>
-        <span class="guide" aria-hidden="true"></span>
         <div class="footer-grid">
             <div class="footer-brand">
                 <a href="index.html" class="brand"><span class="brand-name">Abd AlRahman Khalil</span></a>
+                <p class="city" aria-label="Jerusalem"><span lang="en">Jerusalem</span> <span lang="ar" dir="rtl">القدس</span> <span lang="he" dir="rtl">ירושלים</span></p>
             </div>
             <div class="footer-col">
                 <p class="footer-label" data-i18n="footer-nav">Navigate</p>

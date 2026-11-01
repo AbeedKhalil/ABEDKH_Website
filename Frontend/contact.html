@@ -2,66 +2,70 @@
 <html lang="en" dir="ltr" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="description" content="Contact Abd AlRahman Khalil. Open to software, QA, and IT roles in Israel and remote.">
-    <meta name="theme-color" content="#e7ebed">
+    <meta name="theme-color" content="#202b12">
+    <meta name="color-scheme" content="light dark">
     <link rel="icon" type="image/jpeg" href="assets/profile.jpg">
     <title>Contact, Abd AlRahman Khalil</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Hedvig+Letters+Serif&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Rubik:wght@400..800&display=swap" rel="stylesheet">
     <script>
     (function () {
+        var root = document.documentElement;
+        root.classList.add('js');
         try {
             var stored = localStorage.getItem('theme');
             var light = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
             var theme = stored || (light ? 'light' : 'dark');
-            document.documentElement.setAttribute('data-theme', theme);
+            root.setAttribute('data-theme', theme);
             var meta = document.querySelector('meta[name="theme-color"]');
-            if (meta) meta.setAttribute('content', theme === 'light' ? '#e7ebed' : '#1b2226');
+            if (meta) meta.setAttribute('content', theme === 'light' ? '#202b12' : '#1a230d');
         } catch (e) {}
     })();
     </script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="page-contact">
 <a href="#main" class="skip-link">Skip to content</a>
 <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
 <header class="site-header" id="site-header">
-    <div class="nav-pill crop">
+    <div class="bar container">
         <a href="index.html" class="brand" aria-label="Home">
-            <img src="assets/profile.jpg" alt="" class="brand-avatar" width="28" height="28">
+            <img src="assets/profile.jpg" alt="" class="brand-avatar" width="32" height="32">
             <span class="brand-name">Abd AlRahman Khalil</span>
         </a>
-        <nav aria-label="Primary">
+        <nav aria-label="Primary" class="primary-nav">
             <ul class="nav-links" id="nav-links">
-                <li><a href="index.html" data-i18n="nav-home">Home</a></li>
-                <li><a href="projects.html" data-i18n="nav-projects">Projects</a></li>
-                <li><a href="resume.html" data-i18n="nav-resume">Resume</a></li>
-                <li><a href="contact.html" data-i18n="nav-contact">Contact</a></li>
+                <li style="--i:0"><a href="index.html" data-i18n="nav-home">Home</a></li>
+                <li style="--i:1"><a href="projects.html" data-i18n="nav-projects">Projects</a></li>
+                <li style="--i:2"><a href="resume.html" data-i18n="nav-resume">Resume</a></li>
+                <li style="--i:3"><a href="contact.html" data-i18n="nav-contact">Contact</a></li>
             </ul>
         </nav>
         <div class="controls">
-            <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle theme">
-                <svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-            </button>
             <select class="lang-switcher" id="lang-select" aria-label="Select language">
                 <option value="en">EN</option>
                 <option value="he">עב</option>
                 <option value="ar">عر</option>
             </select>
-            <button class="mobile-toggle" id="mobile-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"><span class="menu-bars" aria-hidden="true"></span></button>
+            <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle theme">
+                <svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
+            <button class="mobile-toggle" id="mobile-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links"><span class="menu-bars" aria-hidden="true"></span></button>
         </div>
     </div>
 </header>
+
 <main id="main">
 
-    <section class="hero proof">
-        <div class="container">
-            <div class="letter-sheet crop">
-                <p class="byline"><span data-i18n="hero-place">Jerusalem</span></p>
-                <h1 data-i18n="contact-title">Let’s talk.</h1>
+    <section class="page-hero field">
+        <div class="container page-hero-grid">
+            <p class="byline"><span data-i18n="hero-place">Jerusalem</span></p>
+            <h1 data-i18n="contact-title">Let’s talk.</h1>
+            <div class="page-hero-copy">
                 <p class="lead" data-i18n="contact-sub">Open to software, QA, and IT work in Israel.</p>
                 <p><a class="btn btn-primary" href="#write"><span data-i18n="btn-send">Send message</span></a></p>
             </div>
@@ -69,13 +73,13 @@
     </section>
     <section class="section" id="pass">
         <div class="container">
-            <article class="ticket crop">
+            <article class="ticket" data-reveal>
                 <div class="ticket-main">
                     <h2 data-i18n="status-open">Open to new opportunities</h2>
                     <p data-i18n="status-replies">Typically replies within 24 hours</p>
                 </div>
                 <div class="perf" aria-hidden="true"></div>
-                <div class="ticket-foot">
+                <div class="ticket-stub">
                     <ul class="contact-list">
                         <li><div class="lbl" data-i18n="lbl-email">Email</div><a href="mailto:abed3.khalil168@gmail.com">abed3.khalil168@gmail.com</a></li>
                         <li><div class="lbl" data-i18n="lbl-phone">Phone</div><a href="tel:+972532525262">+972 53-252-5262</a></li>
@@ -86,7 +90,7 @@
             </article>
         </div>
     </section>
-    <section class="section-l" id="write">
+    <section class="section-l write" id="write">
         <div class="container contact-grid">
             <div>
                 <h2 data-i18n="form-title">Send a message</h2>
@@ -120,16 +124,17 @@
 
 </main>
 
-<footer class="site-footer proof">
+<footer class="site-footer field">
     <div class="container">
         <p class="footer-statement" data-i18n="footer-tag">Building dependable systems out of Jerusalem.</p>
-        <svg class="signature" viewBox="0 0 240 64" role="img" aria-label="Abd AlRahman Khalil" width="180" height="48">
-            <path pathLength="1" d="M16 56 L44 14 L72 56 M30 38 H58 M98 12 V58 M98 34 L138 14 M98 36 L142 58"/>
+        <svg class="signature" viewBox="0 0 240 80" role="img" aria-label="Abd AlRahman Khalil" width="200" height="66" data-reveal>
+            <!-- A monogram in one stroke. Replace the path with a trace of Abed’s own signature. -->
+            <path pathLength="1" d="M14 64 C24 44 36 22 48 10 C52 28 56 46 62 64 M28 46 C58 41 92 39 122 41 M106 12 C104 30 101 48 98 66 M142 14 C126 27 113 36 102 42 C118 48 133 58 148 68 M20 74 C84 69 160 70 226 60"/>
         </svg>
-        <span class="guide" aria-hidden="true"></span>
         <div class="footer-grid">
             <div class="footer-brand">
                 <a href="index.html" class="brand"><span class="brand-name">Abd AlRahman Khalil</span></a>
+                <p class="city" aria-label="Jerusalem"><span lang="en">Jerusalem</span> <span lang="ar" dir="rtl">القدس</span> <span lang="he" dir="rtl">ירושלים</span></p>
             </div>
             <div class="footer-col">
                 <p class="footer-label" data-i18n="footer-nav">Navigate</p>
@@ -156,6 +161,8 @@
     </div>
 </footer>
 
+<script src="projects-fallback.js"></script>
+<script src="config.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

@@ -550,7 +550,7 @@
         const icon = $('#theme-icon');
         if (icon) icon.innerHTML = theme === 'light' ? sunIcon : moonIcon;
         const meta = $('meta[name="theme-color"]');
-        if (meta) meta.setAttribute('content', theme === 'light' ? '#e7ebed' : '#1b2226');
+        if (meta) meta.setAttribute('content', theme === 'light' ? '#202b12' : '#1a230d');
     }
 
     function initTheme() {
@@ -582,23 +582,41 @@
         const toggle = $('#mobile-toggle');
         const menu = $('#nav-links');
         if (toggle && menu) {
-            toggle.addEventListener('click', () => {
-                const open = menu.classList.toggle('open');
+            const setOpen = (open) => {
+                menu.classList.toggle('open', open);
                 toggle.setAttribute('aria-expanded', String(open));
-            });
+                document.body.classList.toggle('menu-open', open);
+            };
+            toggle.addEventListener('click', () => setOpen(!menu.classList.contains('open')));
             menu.addEventListener('click', (e) => {
-                if (e.target.tagName === 'A') {
-                    menu.classList.remove('open');
-                    toggle.setAttribute('aria-expanded', 'false');
+                if (e.target.tagName === 'A') setOpen(false);
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && menu.classList.contains('open')) {
+                    setOpen(false);
+                    toggle.focus();
                 }
+            });
+            window.matchMedia('(min-width: 60.0625rem)').addEventListener('change', (e) => {
+                if (e.matches) setOpen(false);
             });
         }
 
         const header = $('#site-header');
         if (header) {
-            const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
-            onScroll();
+            // The bar takes the colour of whatever section sits under it: olive over the field, paper elsewhere.
+            let raf = 0;
+            const update = () => {
+                raf = 0;
+                header.classList.toggle('scrolled', window.scrollY > 8);
+                const probe = header.offsetHeight + 1;
+                const under = document.elementsFromPoint(window.innerWidth / 2, probe).find(el => !header.contains(el));
+                header.classList.toggle('over-field', !!(under && under.closest('.field')));
+            };
+            const onScroll = () => { if (!raf) raf = requestAnimationFrame(update); };
+            update();
             window.addEventListener('scroll', onScroll, { passive: true });
+            window.addEventListener('resize', onScroll, { passive: true });
         }
     }
 
@@ -1194,6 +1212,27 @@
     }
 
     /* ------------------------------------------------------------------ */
+    /*  Foil stamp: the sheen follows a fine pointer across the ticket     */
+    /* ------------------------------------------------------------------ */
+    function initFoil() {
+        if (reducedMotion()) return;
+        if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+        $$('.ticket').forEach(ticket => {
+            const stamp = $('.stamp', ticket);
+            if (!stamp) return;
+            ticket.addEventListener('pointermove', (e) => {
+                const r = stamp.getBoundingClientRect();
+                stamp.style.setProperty('--mx', (((e.clientX - r.left) / r.width) * 100).toFixed(1) + '%');
+                stamp.style.setProperty('--my', (((e.clientY - r.top) / r.height) * 100).toFixed(1) + '%');
+            });
+            ticket.addEventListener('pointerleave', () => {
+                stamp.style.removeProperty('--mx');
+                stamp.style.removeProperty('--my');
+            });
+        });
+    }
+
+    /* ------------------------------------------------------------------ */
     /*  Boot                                                               */
     /* ------------------------------------------------------------------ */
     document.addEventListener('DOMContentLoaded', () => {
@@ -1209,6 +1248,7 @@
         initMagneticButtons();
         initScrollProgress();
         initMarquee();
+        initFoil();
         renderProjects();
     });
 })();

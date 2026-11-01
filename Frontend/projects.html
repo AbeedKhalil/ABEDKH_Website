@@ -1,15 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" data-theme="dark">
+<html lang="en" dir="ltr" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Selected projects by Abd AlRahman Khalil — full-stack web, computer vision, automation, and game engineering.">
-    <meta name="theme-color" content="#0a0a0d">
+    <meta name="description" content="Projects by Abd AlRahman Khalil: web, vision, games, automation, cybersecurity, and machine learning.">
+    <meta name="theme-color" content="#e7ebed">
     <link rel="icon" type="image/jpeg" href="assets/profile.jpg">
-    <title>Projects — Abd AlRahman Khalil</title>
+    <title>Projects, Abd AlRahman Khalil</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Hedvig+Letters+Serif&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+    (function () {
+        try {
+            var stored = localStorage.getItem('theme');
+            var light = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+            var theme = stored || (light ? 'light' : 'dark');
+            document.documentElement.setAttribute('data-theme', theme);
+            var meta = document.querySelector('meta[name="theme-color"]');
+            if (meta) meta.setAttribute('content', theme === 'light' ? '#e7ebed' : '#1b2226');
+        } catch (e) {}
+    })();
+    </script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,10 +29,10 @@
 <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
 <header class="site-header" id="site-header">
-    <div class="container nav-container">
+    <div class="nav-pill crop">
         <a href="index.html" class="brand" aria-label="Home">
-            <img src="assets/profile.jpg" alt="" class="brand-avatar" aria-hidden="true">
-            <span><span class="brand-name">Abd AlRahman Khalil</span></span>
+            <img src="assets/profile.jpg" alt="" class="brand-avatar" width="28" height="28">
+            <span class="brand-name">Abd AlRahman Khalil</span>
         </a>
         <nav aria-label="Primary">
             <ul class="nav-links" id="nav-links">
@@ -32,90 +44,186 @@
         </nav>
         <div class="controls">
             <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle theme">
-                <svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
             </button>
             <select class="lang-switcher" id="lang-select" aria-label="Select language">
                 <option value="en">EN</option>
                 <option value="he">עב</option>
                 <option value="ar">عر</option>
             </select>
-            <button class="mobile-toggle" id="mobile-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+            <button class="mobile-toggle" id="mobile-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"><span class="menu-bars" aria-hidden="true"></span></button>
         </div>
     </div>
 </header>
-
 <main id="main">
-    <section class="container" style="padding-top: 4rem;">
-        <div class="section-head" data-reveal>
-            <span class="eyebrow" data-num="00" data-i18n="ey-work">Selected work</span>
-            <h1 class="display"><span data-i18n="proj-page-title-1">Projects</span><span class="italic-accent" data-i18n="proj-page-title-accent">.</span></h1>
-            <p data-i18n="proj-page-sub">A working portfolio of academic and personal projects spanning full-stack web, computer vision, game engineering, and automation. Each one prioritizes correctness, observability, and clean execution.</p>
-        </div>
 
-        <div class="filter-bar" role="tablist" aria-label="Filter projects" data-reveal>
-            <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">
-                <span data-i18n="filter-all">All</span> <span class="count">—</span>
-            </button>
-            <button class="filter-btn" data-filter="web" role="tab" aria-selected="false">
-                <span data-i18n="filter-web">Web</span> <span class="count">—</span>
-            </button>
-            <button class="filter-btn" data-filter="vision" role="tab" aria-selected="false">
-                <span data-i18n="filter-vision">Vision</span> <span class="count">—</span>
-            </button>
-            <button class="filter-btn" data-filter="game" role="tab" aria-selected="false">
-                <span data-i18n="filter-games">Games</span> <span class="count">—</span>
-            </button>
-            <button class="filter-btn" data-filter="auto" role="tab" aria-selected="false">
-                <span data-i18n="filter-auto">Automation</span> <span class="count">—</span>
-            </button>
-            <button class="filter-btn" data-filter="cybersecurity" role="tab" aria-selected="false">
-                <span data-i18n="filter-cybersecurity">Cybersecurity</span> <span class="count">—</span>
-            </button>
-            <button class="filter-btn" data-filter="machine-learning-data-science" role="tab" aria-selected="false">
-                <span data-i18n="filter-ml">ML &amp; Data Science</span> <span class="count">—</span>
-            </button>
-            <button class="filter-btn" data-filter="software-engineering" role="tab" aria-selected="false">
-                <span data-i18n="filter-software">Software Engineering</span> <span class="count">—</span>
-            </button>
-        </div>
-
-        <!-- Featured project (rendered by script.js from /api/projects) -->
-        <div id="featured-slot" data-reveal></div>
-
-        <div class="grid-2" id="projects-grid" aria-busy="true">
-            <div class="project-skeleton" aria-hidden="true"></div>
-            <div class="project-skeleton" aria-hidden="true"></div>
-            <div class="project-skeleton" aria-hidden="true"></div>
-            <div class="project-skeleton" aria-hidden="true"></div>
-        </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="container">
-        <div class="cta-banner" data-reveal>
-            <h2 class="display"><span data-i18n="cta-collab-1">Have a project</span> <span class="italic-accent" data-i18n="cta-collab-accent">in mind</span><span data-i18n="cta-collab-2">?</span></h2>
-            <p data-i18n="cta-collab-sub">Whether it's full-stack, automation, or QA-driven, I'd love to hear about it.</p>
-            <div class="btn-group">
-                <a href="contact.html" class="btn btn-warm" data-magnetic>
-                    <span data-i18n="btn-contact">Get in touch</span>
-                </a>
+    <section class="hero proof">
+        <div class="container">
+            <div class="letter-sheet crop">
+                <p class="byline"><span data-i18n="hero-place">Jerusalem</span> <time datetime="2026">2026</time></p>
+                <h1 data-i18n="proj-page-title">Projects</h1>
+                <p class="lead" data-i18n="proj-page-sub">Eleven projects, from a swim school site to domain classification.</p>
+                <p><a class="btn btn-primary" href="#catalog"><span data-i18n="btn-view-all">View all projects</span></a></p>
+                <p class="hero-figure">11</p>
             </div>
         </div>
     </section>
+    <section class="section" id="catalog">
+        <div class="container">
+            <h2 data-i18n="work-title">Recent projects</h2>
+            <div class="filter-bar" role="tablist" aria-label="Filter projects">
+                <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true" type="button"><span data-i18n="filter-all">All</span> <span class="count">11</span></button>
+                <button class="filter-btn" data-filter="web" role="tab" aria-selected="false" type="button"><span data-i18n="filter-web">Web</span> <span class="count">00</span></button>
+                <button class="filter-btn" data-filter="vision" role="tab" aria-selected="false" type="button"><span data-i18n="filter-vision">Vision</span> <span class="count">00</span></button>
+                <button class="filter-btn" data-filter="game" role="tab" aria-selected="false" type="button"><span data-i18n="filter-games">Games</span> <span class="count">00</span></button>
+                <button class="filter-btn" data-filter="auto" role="tab" aria-selected="false" type="button"><span data-i18n="filter-auto">Automation</span> <span class="count">00</span></button>
+                <button class="filter-btn" data-filter="cybersecurity" role="tab" aria-selected="false" type="button"><span data-i18n="filter-cybersecurity">Cybersecurity</span> <span class="count">00</span></button>
+                <button class="filter-btn" data-filter="machine-learning-data-science" role="tab" aria-selected="false" type="button"><span data-i18n="filter-ml">ML &amp; Data Science</span> <span class="count">00</span></button>
+                <button class="filter-btn" data-filter="software-engineering" role="tab" aria-selected="false" type="button"><span data-i18n="filter-software">Software Engineering</span> <span class="count">00</span></button>
+            </div>
+            <div id="featured-slot">
+<article class="project-featured" data-cat="web">
+                <div class="project-visual" aria-hidden="true"><span>2026</span></div>
+                <div class="project-body">
+                    <span class="featured-tag">Featured</span>
+                    <div class="project-meta"><span>Web</span><span>2026</span></div>
+                    <h3>KAYA SWIM</h3>
+                    <p>A course site and founder page for KAYA SWIM. Hebrew at the root, English at /en/, static HTML from Astro and Tailwind, with each call to action opening WhatsApp already addressed to that context.</p>
+                    <div class="tech-stack"><span class="tag">Astro</span><span class="tag">Tailwind CSS</span><span class="tag">TypeScript</span></div>
+                    <div class="project-actions"><a class="btn btn-sm" href="https://github.com/AbeedKhalil/kaya-swim" target="_blank" rel="noopener">Open repository</a><a class="text-link" href="https://abeedkhalil.github.io/kaya-swim/" target="_blank" rel="noopener">Live demo</a></div>
+                </div>
+            </article>
+            </div>
+            <div class="project-list" id="projects-grid">
+<article class="project-card" data-cat="machine-learning-data-science">
+                <div class="project-visual" aria-hidden="true"><span>2025</span></div>
+                <div class="project-body">
+                    
+                    <div class="project-meta"><span>ML and data science</span><span>2025</span></div>
+                    <h3>TruthLens AI</h3>
+                    <p>A React and TypeScript app that scores short text for bias and misinformation cues with Hugging Face zero-shot classification.</p>
+                    <div class="tech-stack"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Hugging Face</span></div>
+                    <div class="project-actions"><a class="btn btn-sm" href="https://github.com/AbeedKhalil/TruthLensAI" target="_blank" rel="noopener">View on GitHub</a></div>
+                </div>
+            </article>
+<article class="project-card" data-cat="web">
+                <div class="project-visual" aria-hidden="true"><span>2025</span></div>
+                <div class="project-body">
+                    
+                    <div class="project-meta"><span>Web</span><span>2025</span></div>
+                    <h3>Full-Stack Chatroom</h3>
+                    <p>Session auth, REST messaging, and persistent storage with paranoid soft-deletion. DOM updates via polling.</p>
+                    <div class="tech-stack"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">Sequelize</span><span class="tag">MariaDB</span></div>
+                    <div class="project-actions"><a class="btn btn-sm" href="https://github.com/Solange-s-Courses/ex5-express-abed-rayan.git" target="_blank" rel="noopener">View on GitHub</a></div>
+                </div>
+            </article>
+<article class="project-card" data-cat="web">
+                <div class="project-visual" aria-hidden="true"><span>2026</span></div>
+                <div class="project-body">
+                    
+                    <div class="project-meta"><span>Web</span><span>2026</span></div>
+                    <h3>Adam Eve Perfumes</h3>
+                    <p>Arabic and English storefront for Adam Eve Perfumes: a catalog, a house story, and a contact path. Live on GitHub Pages.</p>
+                    <div class="tech-stack"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Bootstrap</span></div>
+                    <div class="project-actions"><a class="btn btn-sm" href="https://github.com/AbeedKhalil/AdamEvePerfumes" target="_blank" rel="noopener">View on GitHub</a><a class="text-link" href="https://abeedkhalil.github.io/AdamEvePerfumes/" target="_blank" rel="noopener">Live demo</a></div>
+                </div>
+            </article>
+<article class="project-card" data-cat="machine-learning-data-science">
+                <div class="project-visual" aria-hidden="true"><span>2026</span></div>
+                <div class="project-body">
+                    
+                    <div class="project-meta"><span>ML and data science</span><span>2026</span></div>
+                    <h3>Heart Disease Prediction</h3>
+                    <p>A scikit-learn pipeline on clinical attributes. Logistic regression, k-nearest neighbors, and a random forest, compared on precision, recall, F1, and ROC-AUC.</p>
+                    <div class="tech-stack"><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">scikit-learn</span></div>
+                    <div class="project-actions"><a class="btn btn-sm" href="https://github.com/AbeedKhalil/heart-disease-prediction" target="_blank" rel="noopener">View on GitHub</a></div>
+                </div>
+            </article>
+<article class="project-card" data-cat="cybersecurity">
+                <div class="project-visual" aria-hidden="true"><span>2026</span></div>
+                <div class="project-body">
+                    
+                    <div class="project-meta"><span>Cybersecurity</span><span>2026</span></div>
+                    <h3>DNS Domain Classification</h3>
+                    <p>A notebook that labels domains as benign, malware, phishing, or spam, then compares a decision tree, logistic regression, and a class-balanced random forest.</p>
+                    <div class="tech-stack"><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">scikit-learn</span><span class="tag">Jupyter</span></div>
+                    <div class="project-actions"><a class="btn btn-sm" href="https://github.com/AbeedKhalil/dns-project" target="_blank" rel="noopener">View on GitHub</a></div>
+                </div>
+            </article>
+<article class="project-card" data-cat="vision">
+                <div class="project-visual" aria-hidden="true"><span>2024</span></div>
+                <div class="project-body">
+                    
+                    <div class="project-meta"><span>Vision</span><span>2024</span></div>
+                    <h3>Coins and Bills Detection</h3>
+                    <p>MATLAB pipeline that finds coins and notes in ILS, EUR, and USD, then totals the value. CLAHE, circle detection, HSV, and cross-correlation.</p>
+                    <div class="tech-stack"><span class="tag">MATLAB</span><span class="tag">Image Processing</span></div>
+                    <div class="project-actions"><a class="btn btn-sm" href="https://github.com/AbeedKhalil/CoinsAndBillsDetection" target="_blank" rel="noopener">View on GitHub</a></div>
+                </div>
+            </article>
+<article class="project-card" data-cat="auto">
+                <div class="project-visual" aria-hidden="true"><span>2024</span></div>
+                <div class="project-body">
+                    
+                    <div class="project-meta"><span>Automation</span><span>2024</span></div>
+                    <h3>Unit Converter Tests</h3>
+                    <p>Appium and Cucumber scenarios in Ruby that drive the Ultimate Unit Converter Android app: headers, the swap control, and unit changes.</p>
+                    <div class="tech-stack"><span class="tag">Ruby</span><span class="tag">Appium</span><span class="tag">Cucumber</span></div>
+                    <div class="project-actions"><a class="btn btn-sm" href="https://github.com/AbeedKhalil/converter_automation" target="_blank" rel="noopener">View on GitHub</a></div>
+                </div>
+            </article>
+<article class="project-card" data-cat="game">
+                <div class="project-visual" aria-hidden="true"><span>2024</span></div>
+                <div class="project-body">
+                    
+                    <div class="project-meta"><span>Game</span><span>2024</span></div>
+                    <h3>Age of Wars</h3>
+                    <p>A strategy game with the testing treated as part of the design. Unit tests cover about 80% of the combat and progression logic.</p>
+                    <div class="tech-stack"><span class="tag">C++</span><span class="tag">SFML</span><span class="tag">Unit Testing</span></div>
+                    <div class="project-actions"><a class="btn btn-sm" href="https://github.com/AbeedKhalil/oop2_project" target="_blank" rel="noopener">View on GitHub</a></div>
+                </div>
+            </article>
+<article class="project-card" data-cat="game">
+                <div class="project-visual" aria-hidden="true"><span>2024</span></div>
+                <div class="project-body">
+                    
+                    <div class="project-meta"><span>Game</span><span>2024</span></div>
+                    <h3>Feeding Frenzy</h3>
+                    <p>A C++ fish-eat-fish game with Rayan Abdalhalem. Growth, hazards, power-ups, and stages, saved high scores, a state machine.</p>
+                    <div class="tech-stack"><span class="tag">C++</span><span class="tag">SFML</span><span class="tag">CMake</span></div>
+                    <div class="project-actions"><a class="btn btn-sm" href="https://github.com/AbeedKhalil/oop2_project-Abed_Khalil-Rayan_Abdalhalem" target="_blank" rel="noopener">View on GitHub</a></div>
+                </div>
+            </article>
+<article class="project-card" data-cat="game">
+                <div class="project-visual" aria-hidden="true"><span>2023</span></div>
+                <div class="project-body">
+                    
+                    <div class="project-meta"><span>Game</span><span>2023</span></div>
+                    <h3>Mouse vs Cats</h3>
+                    <p>A real-time game where cats chase with A* pathfinding. Game rules stay separate from the SFML drawing.</p>
+                    <div class="tech-stack"><span class="tag">C++</span><span class="tag">SFML</span><span class="tag">A*</span></div>
+                    <div class="project-actions"><a class="btn btn-sm" href="https://github.com/AbeedKhalil/oop1_project" target="_blank" rel="noopener">View on GitHub</a></div>
+                </div>
+            </article>
+            </div>
+        </div>
+    </section>
+
 </main>
 
-<footer class="site-footer">
+<footer class="site-footer proof">
     <div class="container">
+        <p class="footer-statement" data-i18n="footer-tag">Building dependable systems out of Jerusalem.</p>
+        <svg class="signature" viewBox="0 0 240 64" role="img" aria-label="Abd AlRahman Khalil" width="180" height="48">
+            <path pathLength="1" d="M16 56 L44 14 L72 56 M30 38 H58 M98 12 V58 M98 34 L138 14 M98 36 L142 58"/>
+        </svg>
+        <span class="guide" aria-hidden="true"></span>
         <div class="footer-grid">
             <div class="footer-brand">
-                <a href="index.html" class="brand">
-                    <img src="assets/profile.jpg" alt="" class="brand-avatar" aria-hidden="true">
-                    <span class="brand-name">Abd AlRahman Khalil</span>
-                </a>
-                <p data-i18n="footer-tag">Computer Science · QA &amp; Automation · IT Engineering. Building dependable systems out of Jerusalem.</p>
+                <a href="index.html" class="brand"><span class="brand-name">Abd AlRahman Khalil</span></a>
             </div>
             <div class="footer-col">
-                <h5 data-i18n="footer-nav">Navigate</h5>
+                <p class="footer-label" data-i18n="footer-nav">Navigate</p>
                 <ul>
                     <li><a href="index.html" data-i18n="nav-home">Home</a></li>
                     <li><a href="projects.html" data-i18n="nav-projects">Projects</a></li>
@@ -124,22 +232,22 @@
                 </ul>
             </div>
             <div class="footer-col">
-                <h5 data-i18n="footer-elsewhere">Elsewhere</h5>
+                <p class="footer-label" data-i18n="footer-elsewhere">Elsewhere</p>
                 <ul>
-                    <li><a href="https://github.com/AbeedKhalil" target="_blank" rel="noopener">GitHub ↗</a></li>
-                    <li><a href="https://www.linkedin.com/in/abed-khalil-731294176/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
-                    <li><a href="mailto:abed3.khalil168@gmail.com">Email ↗</a></li>
-                    <li><a href="assets/Abed_Khalil_CV.pdf" target="_blank" rel="noopener">CV ↗</a></li>
+                    <li><a href="https://github.com/AbeedKhalil" target="_blank" rel="noopener">GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/abed-khalil-731294176/" target="_blank" rel="noopener">LinkedIn</a></li>
+                    <li><a href="mailto:abed3.khalil168@gmail.com">Email</a></li>
+                    <li><a href="assets/Abed_Khalil_CV.pdf" target="_blank" rel="noopener">CV</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p data-i18n="footer-rights">© 2026 Abd AlRahman Khalil. All rights reserved.</p>
-            <span class="mono">v3.0 · designed &amp; built in-house</span>
+            <p data-i18n="footer-rights">© 2026 Abd AlRahman Khalil.</p>
         </div>
     </div>
 </footer>
 
+<script src="projects-fallback.js"></script>
 <script src="config.js"></script>
 <script src="script.js"></script>
 </body>

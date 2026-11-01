@@ -14,6 +14,18 @@
     const i18n = {
         en: {
             "nav-home": "Home", "nav-projects": "Projects", "nav-resume": "Resume", "nav-contact": "Contact",
+            "hero-salute": "Hello. I’m Abd AlRahman Khalil.",
+            "hero-lead": "I build software and the systems under it.",
+            "hero-place": "Jerusalem",
+            "about-h2": "Hybrid by design.",
+            "work-title": "Recent projects",
+            "cap-title": "What I do",
+            "now-title": "Right now",
+            "fig-title": "The record",
+            "cta-title": "Available for hire",
+            "contact-title": "Let’s talk.",
+            "resume-title": "Resume",
+            "proj-page-title": "Projects",
 
             // Hero
             "status-open": "Open to new opportunities",
@@ -23,11 +35,11 @@
             "hero-stmt-accent": "at the seam",
             "hero-stmt-2": "of code & infrastructure.",
             "hero-role-1": "Computer Science",
-            "hero-role-2": "QA & Automation",
+            "hero-role-2": "QA and automation",
             "hero-role-3": "IT Engineering",
-            "hero-desc": "I build dependable software and operate the systems behind it — full-stack web apps, QA automation, and L1/L2 support for thousands of users. Engineering with a bias for stability, observability, and clean execution.",
+            "hero-desc": "I build dependable software and operate the systems behind it: full-stack web apps, QA automation, and L1/L2 support for thousands of users. Engineering with a bias for stability, observability, and clean execution.",
             "card-available": "Available",
-            "btn-projects": "View Projects",
+            "btn-projects": "View projects",
             "btn-cv": "Download CV",
             "btn-resume": "Read my resume",
             "btn-contact": "Get in touch",
@@ -51,14 +63,14 @@
             "about-h2-accent": "by design",
             "about-h2-2": ".",
             "quote-1": "“Stability is a feature. Observability is the other half.”",
-            "about-p1": "I'm a detail-oriented Computer Science professional bridging the gap between software development and IT infrastructure. With a strong foundation in OOP, data structures, and algorithms, I approach software with a focus on stability and performance.",
-            "about-p2": "My background managing L1/L2 technical support for thousands of users has instilled a rigorous QA mindset. I excel at root-cause analysis, log forensics, and automating away repetitive work — whether building full-stack apps, computer-vision scripts, or hardening enterprise environments.",
+            "about-p1": "I’m a detail-oriented Computer Science professional bridging the gap between software development and IT infrastructure. With a strong foundation in OOP, data structures, and algorithms, I approach software with a focus on stability and performance.",
+            "about-p2": "My background managing L1/L2 technical support for thousands of users has instilled a rigorous QA mindset. I do root-cause analysis, log forensics, and automate repetitive work, whether building full-stack apps, computer-vision scripts, or hardening enterprise environments.",
             "principle-1-t": "Stability first",
-            "principle-1-d": "Stability and observability before features — production should fail loudly, not silently.",
+            "principle-1-d": "Stability and observability before features. Production should fail loudly, not silently.",
             "principle-2-t": "Automate the boring",
             "principle-2-d": "Anything done twice gets a script. Anything done weekly gets a pipeline. Document the rest.",
             "principle-3-t": "Tests as hygiene",
-            "principle-3-d": "Coverage isn't a metric, it's a habit — like washing your hands before surgery.",
+            "principle-3-d": "Coverage isn’t a metric, it’s a habit, like washing your hands before surgery.",
 
             // Capabilities
             "ey-cap": "Capabilities",
@@ -68,9 +80,9 @@
             "cap-sub": "A practical mix of building, testing, and supporting — across the stack and across the org.",
             "cap-1-t": "Full-stack development",
             "cap-1-d": "Node.js, Express, REST APIs, MariaDB / MySQL, Sequelize. Authentication, sessions, and persistent storage from the schema up.",
-            "cap-2-t": "QA & automation",
-            "cap-2-d": "Selenium, Playwright, Postman, Appium, unit testing. Build pipelines that fail loudly so production doesn't.",
-            "cap-3-t": "Support & infra",
+            "cap-2-t": "QA and automation",
+            "cap-2-d": "Selenium, Playwright, Postman, Appium, unit testing. Build pipelines that fail loudly so production doesn’t.",
+            "cap-3-t": "Support and infra",
             "cap-3-d": "Active Directory, DNS/DHCP, TCP/IP, Windows Server, Linux. PowerShell automation and RCA-driven documentation.",
 
             // Featured work
@@ -78,7 +90,7 @@
             "work-title-1": "Recent",
             "work-title-accent": "projects",
             "work-title-2": ".",
-            "work-sub": "A small slice — full-stack, computer vision, automation, and game engineering.",
+            "work-sub": "Full-stack, computer vision, automation, and game engineering.",
             "proj-chat-title": "Full-Stack Chatroom",
             "proj-chat-desc": "Secure auth, REST messaging, and persistent storage with paranoid soft-deletion. Real-time DOM updates via polling.",
             "proj-chat-desc-long": "A robust chatroom built for an Internet Programming course. Multi-step registration, session-based authentication, REST messaging with paranoid soft-deletion, and dynamic DOM updates via 10s polling — designed so users can only edit their own content, even under concurrent load.",
@@ -103,10 +115,10 @@
             "now-1-d": "PowerShell pipelines for AD onboarding and recurring infra checks.",
             "now-2-l": "Reading",
             "now-2-t": "Designing Data-Intensive Applications",
-            "now-2-d": "Kleppmann — chasing the parts about replication and consensus.",
+            "now-2-d": "Kleppmann, the chapters on replication and consensus.",
             "now-3-l": "Learning",
-            "now-3-t": "Playwright + Postman flows",
-            "now-3-d": "Wiring API contract tests into CI to fail loudly before deploys.",
+            "now-3-t": "Playwright and Postman flows",
+            "now-3-d": "Wiring API contract tests into CI so a bad change fails before deploy.",
 
             // CTA
             "cta-stmt-1": "Let's build something",
@@ -121,7 +133,7 @@
             // Projects page
             "proj-page-title-1": "Projects",
             "proj-page-title-accent": ".",
-            "proj-page-sub": "A working portfolio of academic and personal projects spanning full-stack web, computer vision, game engineering, and automation. Each one prioritizes correctness, observability, and clean execution.",
+            "proj-page-sub": "Eleven projects, from a swim school site to domain classification.",
             "filter-all": "All", "filter-web": "Web", "filter-vision": "Vision",
             "filter-games": "Games", "filter-auto": "Automation",
             "filter-cybersecurity": "Cybersecurity",
@@ -132,24 +144,24 @@
             "ey-resume": "Curriculum Vitae · 2026",
             "resume-title-1": "Resume",
             "resume-title-accent": ".",
-            "resume-sub": "A condensed view of my engineering experience, education, and toolkit. The full PDF version is available below.",
+            "resume-sub": "Experience, education, and the tools. The PDF is the full document.",
             "aside-sections": "On this page",
             "aside-summary": "Summary",
             "aside-contact": "Contact",
             "section-exp": "Experience",
             "section-edu": "Education",
             "section-skills": "Skills",
-            "resume-summary": "Computer Science engineer with hands-on experience in technical support, automation, and full-stack development. Proven background managing L1/L2 support for 4,500+ users with 100% SLA compliance, and a strong QA mindset rooted in real production troubleshooting. Comfortable across the stack — from Active Directory and PowerShell scripting to Node.js APIs and Python automation.",
-            "exp-date-1": "2023 — Present",
+            "resume-summary": "Computer Science engineer with hands-on experience in technical support, automation, and full-stack development. Proven background managing L1/L2 support for 4,500+ users with 100% SLA compliance, and a strong QA mindset rooted in real production troubleshooting. Comfortable across the stack, from Active Directory and PowerShell scripting to Node.js APIs and Python automation.",
+            "exp-date-1": "2023 to present",
             "exp-title-1": "Technical Support / IT Engineer",
-            "exp-place-1": "Hadassah Academic College · Jerusalem",
+            "exp-place-1": "Hadassah Academic College, Jerusalem",
             "exp-b1": "Provide end-to-end support and advanced L1/L2 troubleshooting for an infrastructure of 4,500+ users.",
             "exp-b2": "Maintain 100% SLA compliance while resolving hardware, software, and complex network requests.",
             "exp-b3": "Administer Active Directory environments and provide comprehensive infrastructure-related support.",
-            "exp-b4": "Develop PowerShell automation scripts to streamline routine administrative tasks and system checks.",
+            "exp-b4": "Develop PowerShell automation scripts for routine administrative tasks and system checks.",
             "exp-b5": "Document recurring issues and run Root Cause Analysis (RCA) to improve workflows and system stability.",
             "edu-degree": "B.Sc. in Computer Science",
-            "edu-place": "Hadassah Academic College · Jerusalem",
+            "edu-place": "Hadassah Academic College, Jerusalem",
             "edu-b1": "Coursework: OOP, Data Structures, Algorithms, Internet Programming, Databases, Computer Vision, Operating Systems.",
             "edu-b2": "Project-driven curriculum spanning C++ game engineering, Node.js full-stack apps, and MATLAB image processing.",
 
@@ -164,7 +176,7 @@
             "contact-title-1": "Let's",
             "contact-title-accent": "talk",
             "contact-title-2": ".",
-            "contact-sub": "Open to opportunities in software development, QA, and IT engineering. The fastest channels are listed on the left — or send a message directly using the form.",
+            "contact-sub": "Open to software, QA, and IT work in Israel.",
             "status-replies": "Typically replies within 24 hours",
             "lbl-email": "Email", "lbl-phone": "Phone",
             "form-title": "Send a message",
@@ -175,14 +187,26 @@
             "form-message": "Message",
 
             // Footer
-            "footer-tag": "Computer Science · QA & Automation · IT Engineering. Building dependable systems out of Jerusalem.",
+            "footer-tag": "Building dependable systems out of Jerusalem.",
             "footer-nav": "Navigate",
             "footer-elsewhere": "Elsewhere",
-            "footer-rights": "© 2026 Abd AlRahman Khalil. All rights reserved."
+            "footer-rights": "© 2026 Abd AlRahman Khalil."
         },
 
         ar: {
             "nav-home": "الرئيسية", "nav-projects": "المشاريع", "nav-resume": "السيرة الذاتية", "nav-contact": "تواصل",
+            "hero-salute": "مرحباً. أنا عبد الرحمن خليل.",
+            "hero-lead": "أبني البرمجيات والأنظمة التي تحتها.",
+            "hero-place": "القدس",
+            "about-h2": "هجين بالتصميم.",
+            "work-title": "مشاريع حديثة",
+            "cap-title": "ما أعمله",
+            "now-title": "الآن",
+            "fig-title": "السجل",
+            "cta-title": "متاح للعمل",
+            "contact-title": "لنتحدث.",
+            "resume-title": "السيرة الذاتية",
+            "proj-page-title": "المشاريع",
 
             "status-open": "متاح لفرص عمل جديدة",
             "ey-portfolio": "محفظة · 2026",
@@ -332,14 +356,26 @@
             "form-subject": "الموضوع",
             "form-message": "الرسالة",
 
-            "footer-tag": "علوم حاسوب · ضمان الجودة والأتمتة · هندسة IT. بناء أنظمة موثوقة من القدس.",
+            "footer-tag": "بناء أنظمة موثوقة من القدس.",
             "footer-nav": "تنقل",
             "footer-elsewhere": "في أماكن أخرى",
-            "footer-rights": "© 2026 عبد الرحمن خليل. جميع الحقوق محفوظة."
+            "footer-rights": "© 2026 عبد الرحمن خليل.",
         },
 
         he: {
             "nav-home": "בית", "nav-projects": "פרויקטים", "nav-resume": "קורות חיים", "nav-contact": "צור קשר",
+            "hero-salute": "שלום. אני עבד אלרחמן חליל.",
+            "hero-lead": "אני בונה תוכנה ואת המערכות שמתחתיה.",
+            "hero-place": "ירושלים",
+            "about-h2": "היברידי בעיצוב.",
+            "work-title": "פרויקטים אחרונים",
+            "cap-title": "מה אני עושה",
+            "now-title": "עכשיו",
+            "fig-title": "הרישום",
+            "cta-title": "פתוח לעבודה",
+            "contact-title": "בואו נדבר.",
+            "resume-title": "קורות חיים",
+            "proj-page-title": "פרויקטים",
 
             "status-open": "פתוח להצעות עבודה",
             "ey-portfolio": "תיק עבודות · 2026",
@@ -489,10 +525,10 @@
             "form-subject": "נושא",
             "form-message": "הודעה",
 
-            "footer-tag": "מדעי המחשב · QA ואוטומציה · הנדסת IT. בונה מערכות אמינות מירושלים.",
+            "footer-tag": "בונה מערכות אמינות מירושלים.",
             "footer-nav": "ניווט",
             "footer-elsewhere": "במקומות אחרים",
-            "footer-rights": "© 2026 עבד אלרחמן חליל. כל הזכויות שמורות."
+            "footer-rights": "© 2026 עבד אלרחמן חליל.",
         }
     };
 
@@ -514,7 +550,7 @@
         const icon = $('#theme-icon');
         if (icon) icon.innerHTML = theme === 'light' ? sunIcon : moonIcon;
         const meta = $('meta[name="theme-color"]');
-        if (meta) meta.setAttribute('content', theme === 'light' ? '#faf8f3' : '#0a0a0d');
+        if (meta) meta.setAttribute('content', theme === 'light' ? '#e7ebed' : '#1b2226');
     }
 
     function initTheme() {
@@ -682,15 +718,54 @@
 
     let _projectCache = null; // { lang, projects }
 
+    function localizeFallback(lang) {
+        const rows = Array.isArray(window.FALLBACK_PROJECTS) ? window.FALLBACK_PROJECTS : [];
+        const pick = (value) => {
+            if (value && typeof value === 'object') return value[lang] || value.en || '';
+            return value;
+        };
+        return rows.map((p) => ({
+            slug: p.slug,
+            category: p.category,
+            year: p.year,
+            featured: !!p.featured,
+            displayOrder: p.displayOrder,
+            heroImage: p.heroImage || null,
+            repoUrl: p.repoUrl || null,
+            demoUrl: p.demoUrl || null,
+            techStack: p.techStack || [],
+            title: pick(p.title),
+            shortDesc: pick(p.shortDesc),
+            longDesc: pick(p.longDesc),
+            lang: lang
+        }));
+    }
+
+    function mergeWithFallback(apiProjects, lang) {
+        const fallback = localizeFallback(lang);
+        const seen = new Set((apiProjects || []).map((p) => p.slug));
+        const merged = (apiProjects || []).concat(fallback.filter((p) => !seen.has(p.slug)));
+        merged.sort((a, b) => (Number(b.featured) - Number(a.featured)) || ((a.displayOrder || 0) - (b.displayOrder || 0)) || ((b.year || 0) - (a.year || 0)));
+        return merged;
+    }
+
     async function loadProjects(lang) {
         if (_projectCache && _projectCache.lang === lang) return _projectCache.projects;
         const base = window.PORTFOLIO_API_BASE || '';
-        const res = await fetch(base + '/api/projects?lang=' + encodeURIComponent(lang), { credentials: 'omit' });
-        if (!res.ok) throw new Error('Failed to load projects: ' + res.status);
-        const data = await res.json();
-        const projects = Array.isArray(data.projects) ? data.projects : [];
-        _projectCache = { lang, projects };
-        return projects;
+        try {
+            const res = await fetch(base + '/api/projects?lang=' + encodeURIComponent(lang), { credentials: 'omit' });
+            if (!res.ok) throw new Error('Failed to load projects: ' + res.status);
+            const data = await res.json();
+            const apiProjects = Array.isArray(data.projects) ? data.projects : [];
+            const projects = mergeWithFallback(apiProjects, lang);
+            _projectCache = { lang, projects };
+            return projects;
+        } catch (err) {
+            const projects = localizeFallback(lang);
+            if (!projects.length) throw err;
+            _projectCache = { lang, projects };
+            return projects;
+        }
     }
 
     function categoryVisualHTML(project) {
@@ -714,10 +789,7 @@
         meta.className = 'project-meta';
         const cat = document.createElement('span');
         cat.className = 'cat-label';
-        const dot = document.createElement('span');
-        dot.className = 'cat-dot';
-        cat.appendChild(dot);
-        cat.appendChild(document.createTextNode(' ' + (CATEGORY_LABELS[project.category] || project.category)));
+        cat.appendChild(document.createTextNode(CATEGORY_LABELS[project.category] || project.category));
         const year = document.createElement('span');
         year.textContent = String(project.year);
         meta.appendChild(cat);
@@ -958,7 +1030,7 @@
             const end = parseInt(el.dataset.count, 10);
             if (isNaN(end)) return;
             if (reduced) {
-                el.textContent = end.toLocaleString();
+                el.textContent = end.toLocaleString('en-US');
                 return;
             }
             const dur = 1400;
@@ -967,7 +1039,7 @@
             const tick = (now) => {
                 const t = Math.min(1, (now - start) / dur);
                 const value = Math.round(end * easeOut(t));
-                el.textContent = value.toLocaleString();
+                el.textContent = value.toLocaleString('en-US');
                 if (t < 1) requestAnimationFrame(tick);
             };
             requestAnimationFrame(tick);
